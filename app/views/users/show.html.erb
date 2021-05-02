@@ -1,0 +1,150 @@
+<% if @user.id == current_user.id %>
+  <%= render partial: 'mypage/profile_heading', locals: { user: @user } %>
+<% else %>
+  <%= render partial: 'other_user_profile_heading', locals: { user: @user } %>
+<% end %>
+<div class="py-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 col-lg-9 col-md-12 col-12 mb-5 mt-4 ">
+        <ul class="nav nav-lb-tab mb-6" id="tab" role="tablist">
+          <li class="nav-item ml-0" role="presentation">
+            <a class="nav-link active font-size-s" style="font-weight: bold;" id="profile-tab" data-toggle="pill" href="#profile" role="tab"
+              aria-controls="profile" aria-selected="true">Profile</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" style="font-weight: bold;" id="plan-tab" data-toggle="pill" href="#plan" role="tab"
+              aria-controls="plan" aria-selected="false">プラン <span class="text-muted font-size-xs"></span></a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" style="font-weight: bold;" id="review-tab" data-toggle="pill" href="#review" role="tab"
+              aria-controls="review" aria-selected="false">レビュー<span class="text-muted font-size-xs"></span></a>
+          </li>
+        </ul>
+        <!-- Tab Content -->
+        <div class="tab-content" id="tabContent">
+          <!-- Tab Pane -->
+
+          <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="card">
+              <div class="card-body">
+
+                <div class="mb-4">
+                  <h3 class="mb-3 border-bottom">自己紹介</h3>
+                  <p></p>
+                </div>
+
+
+                <h3 class="mb-3 border-bottom">これまでの経験や実績</h3>
+                <div class="row mb-3">
+                  <div class="col-12 col-md-12">
+                    <p></p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <p>登録されていません</p>
+          </div>
+
+
+          <div class="tab-pane fade" id="plan" role="tabpanel" aria-labelledby="plan-tab">
+            <div class="mb-2" style="font-weight: bold;">
+              <h5 class="mb-0">掲載中のプラン</h5>
+            </div>
+
+            <div class="card mb-3">
+              <div class="card-body">
+                <!-- List group -->
+                <ul class="list-group list-group-flush">
+                  <!-- List group item -->
+                  <li class="list-group-item px-0 pb-3 pt-0">
+                    <div class="d-flex align-items-center justify-content-between">
+
+                        <div class="d-lg-flex align-items-center">
+                          <div>
+                            <img src="/geeks-1.0.1/dist/assets/images/course/course-wordpress.jpg" alt="" class="rounded img-4by3-lg" />
+                          </div>
+                          <div class="ml-lg-3 mt-2 mt-lg-0">
+                            <h4 class="text-inherit">
+
+                            </h4>
+                            <ul class="list-inline font-size-xs mb-0 text-inherit">
+                              <li class="list-inline-item">
+                                <i class="mdi mdi-star text-warning mr-1"></i>
+
+                              </li>
+                              <li class="list-inline-item">
+                                <i class="fa fa-comments mr-1"></i>
+                                <span class="text-muted">
+
+                                </span>
+                              </li>
+                              <li class="list-inline-item">
+                                <i class="fa fa-tags mr-1"></i>
+
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+
+                      <div>
+                        <!-- Dropdown -->
+                        <span class="dropdown dropleft">
+                          <i class="far fa-clock mr-1"></i>
+
+                        </span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="tab-pane fade" id="plan" role="tabpanel" aria-labelledby="plan-tab">
+            <div class="mb-2" style="font-weight: bold;">
+              <h5 class="mb-0">掲載中のプランはありません</h5>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
+            <div class=" mb-2 d-sm-flex flex-xs-sm-column align-items-center">
+              <h6 class="mr-5 mb-0"></h6>
+              <div class="d-flex align-items-center">
+                <h6 class="mb-0 mr-2"></h6>
+                <span class="mb-2 font-weight-bold" id="average-review-rating-main" data-score=></span>
+              </div>
+              <!-- JQ評価 -->
+
+            </div>
+            <div class="mb-3">
+
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="d-flex align-items-center">
+
+
+                    <div class="ml-2 lh-1">
+                      <h4 class="mb-1"></h4>
+                      <span class="ml-1 font-size-xs text-muted"></span>
+                    </div>
+                  </div>
+                  <div class="d-flex mb-5">
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
