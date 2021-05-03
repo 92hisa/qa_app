@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :correct_post_user, only: [:edit, :update, :destroy]
+  before_action :set_categories, only: [:edit, :new]
 
   def index
     @post_open = Post.where(status: 0).order(created_at: 'desc')
     @post_close = Post.where(status: 1).order(created_at: 'desc')
-    
+
   end
 
   def new
@@ -42,8 +43,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def dynamic_select_category
+    @category = Category.find(params[:category_id])
+  end
+
   def post_params
-    params.require(:post).permit(:title, :content, :post_image, :status).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :content, :post_image, :status, :category_id).merge(user_id: current_user.id)
   end
 
   def correct_post_user
@@ -51,5 +56,10 @@ class PostsController < ApplicationController
     if post.user.id != current_user.id
        redirect_to root_path
     end
+  end
+
+  def set_categories
+    @parent_categories = Category.roots
+    @default_child_categories = @parent_categories.first.children
   end
 end
