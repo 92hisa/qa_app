@@ -131,3 +131,8 @@ a {
 .btn-lg {
   line-height: 1.0;
 }
+
+.year,.month,.day{
+  display: inline-block;
+  width: auto;
+}

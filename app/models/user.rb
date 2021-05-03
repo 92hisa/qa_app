@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  enum gender: { man: 0, woman: 1 }
   validates :name, presence: true, length: { maximum: 50 }
 
   mount_uploader :profile_image, ImageUploader
