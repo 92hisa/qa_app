@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
 
   resources :posts
+  resources :categories, only: :index
 end
