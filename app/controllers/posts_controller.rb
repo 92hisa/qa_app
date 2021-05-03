@@ -3,7 +3,9 @@ class PostsController < ApplicationController
   before_action :correct_post_user, only: [:edit, :update, :destroy]
 
   def index
-    @post = Post.all.order(created_at: 'desc')
+    @post_open = Post.where(status: 0).order(created_at: 'desc')
+    @post_close = Post.where(status: 1).order(created_at: 'desc')
+    
   end
 
   def new

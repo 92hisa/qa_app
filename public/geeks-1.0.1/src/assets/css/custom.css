@@ -136,3 +136,8 @@ a {
   display: inline-block;
   width: auto;
 }
+
+.nav-lb-tab {
+    border-bottom: 1px solid #dbd8e9;
+    border: 0px none;
+}
