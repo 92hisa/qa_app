@@ -3,5 +3,9 @@ Rails.application.routes.draw do
     controllers: { registrations: 'registrations' }
   root 'tops#index'
 
-  resources :users, only: [:show, :update]
+  resources :users, only: [:show, :update] do
+    get :post_list, on: :member
+  end
+
+  resources :posts
 end
