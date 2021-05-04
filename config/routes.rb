@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     controllers: { registrations: 'registrations' }
   root 'tops#index'
   get :dynamic_select_category, to: 'posts#dynamic_select_category'
+  get '/search', to: 'posts#search', as: :search
+  get '/search_header', to: 'posts#search_header', as: :search_header
 
   resources :users, only: [:show, :update] do
     get :post_list, on: :member

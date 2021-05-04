@@ -1,0 +1,20 @@
+<div class="card border-0 mb-4 ">
+  <%= search_form_for @search_word, url: search_path do |f| %>
+  <div class="card-body mt-2 p-2">
+    <p class="border-bottom" style="font-weight: bold;">フリーワードで絞り込む</p>
+    <div class="form-group d-flex align-items-center">
+      <%= f.search_field :title_or_content_cont, class: "form-control ml-1 mr-1", style: "border-radius: 15px; border: solid 2px #2DAADB;", placeholder: "(例)転職" %>
+    </div>
+  </div>
+  <div class="card-body p-2">
+    <p class="border-bottom" style="font-weight: bold;">回答状況で絞り込む</p>
+    <div class="d-flex align-items-center justify-content-center">
+      <span class="mr-2"><%= f.radio_button :status_eq, 0, class: "mr-1" %>回答受付中</span>
+      <span class="ml-2"><%= f.radio_button :status_eq, 1, class: "mr-1" %>解決済み</span>
+    </div>
+  </div>
+    <div class="card-body p-4 text-center">
+    <%= f.submit "検索", class: "btn btn-success btn-block" %>
+    </div>
+  <% end %>
+</div>
