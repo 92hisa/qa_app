@@ -63,3 +63,4 @@ gem "mini_magick"
 gem 'pry-rails'
 gem 'ancestry'
 gem 'seed-fu'
+gem 'ransack'

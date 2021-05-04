@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def index
     @post_open = Post.where(status: 0).order(created_at: 'desc')
     @post_close = Post.where(status: 1).order(created_at: 'desc')
-
+    @search_word = Post.ransack(params[:q])
   end
 
   def new
@@ -45,6 +45,12 @@ class PostsController < ApplicationController
 
   def dynamic_select_category
     @category = Category.find(params[:category_id])
+  end
+
+  def search
+    @search_word = Post.ransack(params[:q])
+    @search = @search_word.result(distinct: true)
+    @categories = Category.all
   end
 
   def post_params

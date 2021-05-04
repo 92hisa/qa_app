@@ -1,0 +1,52 @@
+<div class="p-lg-5 py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-3 col-lg-3 col-md-12 col-12 mt-md-15">
+        <%= render partial: 'search', locals: { search_word: @search_word } %>
+      </div>
+        <div class="col-xl-9 col-lg-9 col-md-12 col-12 mb-5 mt-4">
+          <div class="border-bottom pb-2 mb-4 d-lg-flex justify-content-between align-items-center">
+            <div>
+              <h1 class="mb-0 h2">Q&A一覧</h1>
+            </div>
+          </div>
+          <div>
+            <div>
+              <% if @search.present? %>
+                <% @search.each do |search| %>
+                <%= link_to post_path(search),data: {"turbolinks" => false}, class: "text-inherit" do %>
+                  <div class="card mb-5">
+                    <div class="card-body pt-2 pb-2">
+                      <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center justify-content-between flex-column">
+                          <% if search.user.profile_image.present? %>
+                            <%= image_tag search.user.profile_image.url, class: "avatar-lg rounded-circle border-width-4 border-white" %>
+                            <%= search.user.name %>
+                          <% else %>
+                            <%= image_tag "profile_default_img_128.png", class: "avatar-lg rounded-circle border-width-4 border-white" %>
+                            <%= search.user.name %>
+                          <% end %>
+                        </div>
+                        <div class="ml-3 d-flex flex-column">
+                          <h4 class="mb-1" style="font-weight: bold;"><%= search.title %></h4>
+                          <p><%= search.content %></p>
+                        </div>
+                        <div style="margin-left: auto;">
+                          <% if search.post_image.present? %>
+                            <%= image_tag search.post_image.url, class: "img-fluid", style:"height: 100px; width: auto; object-fit: cover;"%>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+                <% end %>
+              <% else %>
+              <P>検索結果はありませんでした</p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
