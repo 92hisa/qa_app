@@ -56,11 +56,13 @@
 										<div class="actions">
 											<span class="badge badge-light-danger text-danger mr-2">必須</span><%= f.label "カテゴリー", class: "form-label"%>
 											<select id="parent_category">
+												<option hidden>選択してください</option>
 												<% @parent_categories.each do |c| %>
 													<option value="<%= c.id %>"><%= c.name %></option>
 												<% end %>
 											</select>
-											<select id="post_category_ids" name="post[category_id]">
+											<select id="post_category_id" name="post[category_id]">
+												<option hidden>選択してください</option>
 												<% @default_child_categories.each do |c| %>
 													<option><%= c.name %></option>
 												<% end %>

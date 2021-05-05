@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get :post_list, on: :member
   end
 
-  resources :posts
+  resources :posts do
+    resources :likes, only: %i(create destroy)
+  end
   resources :categories, only: :index
 end
