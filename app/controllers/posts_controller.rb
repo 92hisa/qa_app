@@ -26,6 +26,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @answers = @post.answers.page(params[:page]).per(1)
   end
 
   def edit
