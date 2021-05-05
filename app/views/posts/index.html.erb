@@ -92,7 +92,7 @@
                           <% end %>
                           <div class="d-flex flex-row">
                             <li class="list-inline-item"><i class="fa fa-tags mr-1"></i><%= "#{post_close.category.root.name}/#{post_close.category.name}" %></li>
-                            <div class="ml-2"id="like-icon-post-<%= post_close.id.to_s %>">
+                            <div class="ml-2" id="like-icon-post-<%= post_close.id.to_s %>">
                               <% if post_close.liked_by(current_user).present? %>
                                 <%= link_to "いいねを取り消す", post_like_path(post_close.id, post_close.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
                               <% else %>

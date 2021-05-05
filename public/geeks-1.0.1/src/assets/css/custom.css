@@ -141,3 +141,26 @@ a {
     border-bottom: 1px solid #dbd8e9;
     border: 0px none;
 }
+
+.love {
+  background-image: url("../images/parts5.png");
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 20px;
+  background-size: 20px !important;
+}
+
+.loved {
+  background-image: url("../images/parts7.png");
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 20px;
+  background-size: 20px !important;
+}
+
+.hide-text {
+  display: block;
+  overflow: hidden;
+  text-indent: 110%;
+  white-space: nowrap;
+}
