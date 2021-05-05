@@ -27,7 +27,7 @@
                 <%= link_to post_path(post_open),data: {"turbolinks" => false}, class: "text-inherit" do %>
                   <div class="card mb-5">
                     <div class="card-body pt-2 pb-2">
-                      <div class="d-flex align-items-center justify-content-between">
+                      <div class="d-flex align-items-center">
                         <div class="d-flex align-items-center justify-content-between flex-column">
                           <% if post_open.user.profile_image.present? %>
                             <%= image_tag post_open.user.profile_image.url, class: "avatar-lg rounded-circle border-width-4 border-white" %>
@@ -40,6 +40,9 @@
                         <div class="ml-3 d-flex flex-column">
                           <h4 class="mb-1" style="font-weight: bold;"><%= post_open.title %></h4>
                           <p><%= post_open.content %></p>
+                          <% if post_open.post_image.present? %>
+                            <%= image_tag post_open.post_image.url, class: "img-fluid", style:"height: 200px; width: auto; object-fit: cover;"%>
+                          <% end %>
                           <div id="like-icon-post-<%= post_open.id.to_s %>">
                             <% if post_open.liked_by(current_user).present? %>
                               <%= link_to "いいねを取り消す", post_like_path(post_open.id, post_open.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
@@ -50,11 +53,6 @@
                           <div id="like-text-post-<%= post_open.id.to_s %>">
                             <%= render "like_text", { likes: post_open.likes } %>
                           </div>
-                        </div>
-                        <div style="margin-left: auto;">
-                          <% if post_open.post_image.present? %>
-                            <%= image_tag post_open.post_image.url, class: "img-fluid", style:"height: 100px; width: auto; object-fit: cover;"%>
-                          <% end %>
                         </div>
                       </div>
                     </div>
