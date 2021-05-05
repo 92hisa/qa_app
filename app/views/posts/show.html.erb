@@ -43,6 +43,7 @@
                     </div>
                     <li class="list-inline-item" style="font-weight: bold;"><%= @post.likes.count %></li>
                     <li class="list-inline-item"><i class="far fa-comment-alt ml-2"></i></li>
+                    <li class="list-inline-item" style="font-weight: bold;"><i class="fas fa-gift mr-1"></i><%= "#{@post.answers.count}件" %></li>
                   </div>
                 </div>
               </div>
