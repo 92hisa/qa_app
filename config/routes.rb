@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :likes, only: %i(create destroy)
+    resources :answers
   end
   resources :categories, only: :index
 end

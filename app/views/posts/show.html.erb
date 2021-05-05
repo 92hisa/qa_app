@@ -2,6 +2,15 @@
   <div class="container">
     <div class="row">
       <div class="col-xl-9 col-lg-9 col-md-12 col-12 mb-5 mt-4">
+        <div class="border-bottom pb-2 mb-4 d-lg-flex justify-content-between align-items-center">
+          <div>
+            <% if @post.status == "open" %>
+              <h1 class="mb-0 h2">ただいま回答受付中です!</h1>
+            <% else %>
+              <h1 class="mb-0 h2">回答受付は終了しました</h1>
+            <% end %>
+          </div>
+        </div>
         <a>
           <div class="card mb-5">
             <div class="card-body">
@@ -21,7 +30,7 @@
                   <h4 class="mb-3" style="font-weight: bold;"><%= @post.title %></h4>
                   <p class="mb-3" style="font-weight: bold;"><%= @post.content %></p>
                   <% if @post.post_image.present? %>
-                    <%= image_tag @post.post_image.url, class: "img-fluid", style:"height: 200px; width: auto; object-fit: cover;"%>
+                    <%= image_tag @post.post_image.url, class: "img-fluid mb-4", style:"height: 200px; width: auto; object-fit: cover;"%>
                   <% end %>
                   <div class="d-flex flex-row">
                     <li class="list-inline-item"><i class="fa fa-tags mr-1"></i><%= "#{@post.category.root.name}/#{@post.category.name}" %></li>
@@ -37,9 +46,70 @@
                   </div>
                 </div>
               </div>
+              <ul class="nav nav-lt-tab mt-4" id="tab" role="tablist">
+                <li class="nav-item ml-0" role="presentation">
+                  <a class="nav-link active font-size-s" style="font-weight: bold;" id="answer-tab" data-toggle="pill" href="#answer" role="tab"
+                    aria-controls="answer" aria-selected="true">質問への回答</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" style="font-weight: bold;" id="comment-tab" data-toggle="pill" href="#comment" role="tab"
+                    aria-controls="comment" aria-selected="false">コメント<span class="text-muted font-size-xs"></span></a>
+                </li>
+              </ul>
             </div>
           </div>
         </a>
+        <div class="card rounded-lg">
+          <div class="card-body">
+            <div class="tab-content" id="tabContent">
+              <div class="tab-pane fade show active" id="answer" role="tabpanel" aria-labelledby="answer-tab">
+                <div class="mb-2 d-flex justify-content-between pb-2 mb-4 align-items-center" style="border-bottom: 2px solid #eae7f5">
+                  <h2>回答<h2>
+                  <%= link_to "経験者として回答する", new_post_answer_path(@post.id), class: "btn btn-success"%>
+                </div>
+                <% @post.answers.each do |answer| %>
+                <div class="card rounded-lg border mb-4" style="background-color: #f5f5f5;">
+                  <div class="card-body p-2">
+                    <div class="d-flex align-items-center">
+                      <div class="col-2 d-flex flex-column justify-content-between align-items-center m-2">
+                        <% if answer.user.profile_image.present? %>
+                          <%= image_tag answer.user.profile_image.url, class: "rounded-circle avatar-lg" %>
+                        <% else %>
+                          <%= image_tag 'profile_default_img_128', class:"rounded-circle avatar-lg" %>
+                        <% end %>
+                        <div>
+                          <h4><%= answer.user.name %></h4>
+                          <span class="font-size-xs text-muted"><%= time_ago_in_words(answer.created_at) + "前" %></span>
+                        </div>
+                      </div>
+                      <div class="col-10 d-flex flex-column m-2">
+                        <div class="card-body">
+                          <div class="border-bottom">
+                            <h3 class="badge badge-light-danger text-danger">経験エピソード</h3>
+                          </div>
+                          <p><%= answer.episode %></p>
+                        </div>
+                        <div class="card-body">
+                          <div class="border-bottom">
+                            <h3 class="badge badge-light-danger text-danger mr-2">質問への回答</h3>
+                          </div>
+                          <p><%= answer.content %></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+              <div class="tab-pane fade" id="comment" role="tabpanel" aria-labelledby="comment-tab">
+                <div class="mb-2">
+                  <!-- Content -->
+                  <h3 class="mb-4">コメント<span class="text-muted font-size-xs"></span></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

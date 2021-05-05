@@ -1,0 +1,31 @@
+<div class="pt-5 pb-5">
+	<div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-md-9 col-12">
+      <%= render 'post_info' %>
+        <%= form_with(model: [@post, Answer], local: true) do |f| %>
+        <div class="card">
+          <div class="card-body">
+            <form class="form-row">
+              <!-- タイトル -->
+              <div class="form-group col-12 col-md-12">
+                <span class="badge badge-light-danger text-danger mr-2">必須</span><%= f.label "あなたの経験エピソードを教えてください", class: "form-label"%>
+                <%= f.text_area :episode, id: "fname", rows: "3", class: "form-control", placeholder: "（例）大学生のときにUbar Eatsの配達員のアルバイトを2年間経験しました" %>
+              </div>
+              <!-- コンテンツ -->
+              <div class="form-group col-12 col-md-12">
+                <span class="badge badge-light-danger text-danger mr-2">必須</span><%= f.label "質問への回答(500文字以内)", class: "form-label"%>
+                <%= f.text_area :content, autofocus: true, rows: "5", class: "form-control", placeholder: "(例)週３回１日５時間ほど働いていました。月収は平均12万円ほどでした。" %>
+              </div>
+              <!-- Button -->
+              <div class="col-12 text-center">
+                <%= f.submit "回答する", class: "btn btn-success btn-lg" %>
+              </div>
+            </form>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

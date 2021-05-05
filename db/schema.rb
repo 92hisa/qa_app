@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_131650) do
+ActiveRecord::Schema.define(version: 2021_05_05_035403) do
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "user_id", null: false
+    t.text "episode", null: false
+    t.text "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_answers_on_post_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -58,6 +69,8 @@ ActiveRecord::Schema.define(version: 2021_05_04_131650) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "posts"
+  add_foreign_key "answers", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "categories"
