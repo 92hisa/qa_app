@@ -35,7 +35,7 @@
                     <thead>
                       <tr>
                         <th scope="col" class="border-0">Quation ID</th>
-                        <th scope="col" class="border-0">タイトル</th>
+                        <th scope="col" class="border-0">質問タイトル</th>
                         <th scope="col" class="border-0">カテゴリ</th>
                         <th scope="col" class="border-0">更新日</th>
                         <th scope="col" class="border-0"></th>
@@ -64,7 +64,7 @@
             <% end %>
           </div>
           <div class="tab-pane fade" id="answer" role="tabpanel" aria-labelledby="answer-tab">
-            <% if @post_list.present? %>
+            <% if @answer_list.present? %>
               <div class="card mb-4">
                 <!-- Card header -->
                 <div class="card-header border-bottom-0">
@@ -75,24 +75,24 @@
                   <table class="table mb-0 text-nowrap text-center">
                     <thead>
                       <tr>
-                        <th scope="col" class="border-0">Quation ID</th>
-                        <th scope="col" class="border-0">タイトル</th>
+                        <th scope="col" class="border-0">Answer ID</th>
+                        <th scope="col" class="border-0">質問タイトル</th>
                         <th scope="col" class="border-0">カテゴリ</th>
-                        <th scope="col" class="border-0">更新日</th>
+                        <th scope="col" class="border-0">回答日</th>
                         <th scope="col" class="border-0"></th>
                       </tr>
                     </thead>
-                    <% @post_list.each do |post_list| %>
+                    <% @answer_list.each do |answer_list| %>
                       <tbody>
                         <tr>
-                          <td class="align-middle border-top-0"><%= post_list.id %></td>
+                          <td class="align-middle border-top-0"><%= answer_list.id %></td>
                           <td class="align-middle border-top-0">
                             <h5 class="mb-0">
-                              <%= link_to post_list.title, post_path(post_list),data: {"turbolinks" => false}, class: "text-inherit" %>
+                              <%= link_to answer_list.post.title, post_path(answer_list),data: {"turbolinks" => false}, class: "text-inherit" %>
                             </h5>
                           </td>
-                          <td class="align-middle border-top-0"><%= post_list.updated_at.to_s(:datetime_jp)%></td>
-                          <td><%= link_to "編集", edit_post_path(id: post_list.id),data: {"turbolinks" => false}, class: "btn btn-outline-success btn-sm"%></td>
+                          <td class="align-middle border-top-0"><%= answer_list.created_at.to_s(:datetime_jp)%></td>
+                          <td><%= link_to "編集", edit_post_answer_path(post_id: answer_list.post_id, id: answer_list.id),data: {"turbolinks" => false}, class: "btn btn-outline-success btn-sm"%></td>
                         </tr>
                       </tbody>
                     <% end %>
