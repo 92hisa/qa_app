@@ -43,15 +43,19 @@
                           <% if post_open.post_image.present? %>
                             <%= image_tag post_open.post_image.url, class: "img-fluid", style:"height: 200px; width: auto; object-fit: cover;"%>
                           <% end %>
-                          <div id="like-icon-post-<%= post_open.id.to_s %>">
-                            <% if post_open.liked_by(current_user).present? %>
-                              <%= link_to "いいねを取り消す", post_like_path(post_open.id, post_open.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
-                            <% else %>
-                              <%= link_to "いいね", post_likes_path(post_open), method: :POST, remote: true, class: "love hide-text" %>
-                            <% end %>
-                          </div>
-                          <div id="like-text-post-<%= post_open.id.to_s %>">
-                            <%= render "like_text", { likes: post_open.likes } %>
+                          <div class="d-flex flex-row">
+                            <li class="list-inline-item"><i class="fa fa-tags mr-1"></i><%= "#{post_open.category.root.name}/#{post_open.category.name}" %></li>
+                            <div id="like-icon-post-<%= post_open.id.to_s %>">
+                              <% if post_open.liked_by(current_user).present? %>
+                                <%= link_to "いいねを取り消す", post_like_path(post_open.id, post_open.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
+                              <% else %>
+                                <%= link_to "いいね", post_likes_path(post_open), method: :POST, remote: true, class: "love hide-text" %>
+                              <% end %>
+                            </div>
+                            <div class="mt-1" id="like-text-post-<%= post_open.id.to_s %>">
+                              <span style="font-weight: bold;"><%= post_open.likes.count %></span>
+                            </div>
+                            <li class="list-inline-item"><i class="far fa-comment-alt ml-2 mt-2"></i></li>
                           </div>
                         </div>
                       </div>
