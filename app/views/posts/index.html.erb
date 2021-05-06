@@ -34,7 +34,7 @@
                       <div class="d-flex align-items-center justify-content-between flex-column">
                         <% if post_open.user.profile_image.present? %>
                           <%= image_tag post_open.user.profile_image.url, class: "avatar-lg rounded-circle border-width-4 border-white" %>
-                          <%= post.user.name %>
+                          <%= post_open.user.name %>
                         <% else %>
                           <%= image_tag "profile_default_img_128.png", class: "avatar-lg rounded-circle border-width-4 border-white" %>
                           <%= post_open.user.name %>
@@ -48,14 +48,18 @@
                         <% end %>
                         <div class="d-flex flex-row">
                           <li class="list-inline-item"><i class="fa fa-tags mr-1"></i><%= "#{post_open.category.root.name}/#{post_open.category.name}" %></li>
-                          <div class="ml-2"id="like-icon-post-<%= post_open.id.to_s %>">
-                            <% if post_open.liked_by(current_user).present? %>
-                              <%= link_to "いいねを取り消す", post_like_path(post_open.id, post_open.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
+                            <% if user_signed_in? %>
+                              <div class="ml-2"id="like-icon-post-<%= post_open.id.to_s %>">
+                                  <% if post_open.liked_by(current_user).present? %>
+                                    <%= link_to "いいねを取り消す", post_like_path(post_open.id, post_open.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
+                                  <% else %>
+                                    <%= link_to "いいね", post_likes_path(post_open), method: :POST, remote: true, class: "love hide-text" %>
+                                  <% end %>
+                              </div>
+                              <li class="list-inline-item" style="font-weight: bold;"><div id="like-text-post-<%= post_open.id.to_s %>"><%= render "like_text", { likes: post_open.likes } %></div></li>
                             <% else %>
-                              <%= link_to "いいね", post_likes_path(post_open), method: :POST, remote: true, class: "love hide-text" %>
+                              <li class="list-inline-item" style="font-weight: bold;"><i class="far fa-heart ml-2 mr-1"></i><%= post_open.likes.count %></li>
                             <% end %>
-                          </div>
-                          <li class="list-inline-item" style="font-weight: bold;"><div id="like-text-post-<%= post_open.id.to_s %>"><%= render "like_text", { likes: post_open.likes } %></div></li>
                           <li class="list-inline-item" style="font-weight: bold;"><i class="far fa-comment-alt ml-2 mr-1"></i><%= post_open.answers.count %></li>
                         </div>
                       </div>
@@ -93,14 +97,18 @@
                         <% end %>
                         <div class="d-flex flex-row">
                           <li class="list-inline-item"><i class="fa fa-tags mr-1"></i><%= "#{post_close.category.root.name}/#{post_close.category.name}" %></li>
-                          <div class="ml-2" id="like-icon-post-<%= post_close.id.to_s %>">
-                            <% if post_close.liked_by(current_user).present? %>
-                              <%= link_to "いいねを取り消す", post_like_path(post_close.id, post_close.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
-                            <% else %>
-                              <%= link_to "いいね", post_likes_path(post_close), method: :POST, remote: true, class: "love hide-text" %>
-                            <% end %>
-                          </div>
-                          <li class="list-inline-item" style="font-weight: bold;"><div id="like-text-post-<%= post_close.id.to_s %>"><%= render "like_text", { likes: post_close.likes } %></div></li>
+                          <% if user_signed_in? %>
+                            <div class="ml-2" id="like-icon-post-<%= post_close.id.to_s %>">
+                                <% if post_close.liked_by(current_user).present? %>
+                                  <%= link_to "いいねを取り消す", post_like_path(post_close.id, post_close.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
+                                <% else %>
+                                  <%= link_to "いいね", post_likes_path(post_close), method: :POST, remote: true, class: "love hide-text" %>
+                                <% end %>
+                            </div>
+                            <li class="list-inline-item" style="font-weight: bold;"><div id="like-text-post-<%= post_close.id.to_s %>"><%= render "like_text", { likes: post_close.likes } %></div></li>
+                          <% else %>
+                            <li class="list-inline-item" style="font-weight: bold;"><i class="far fa-heart ml-2 mr-1"></i><%= post_close.likes.count %></li>
+                          <% end %>
                           <li class="list-inline-item" style="font-weight: bold;"><i class="far fa-comment-alt ml-2 mr-1"></i><%= post_close.answers.count %></li>
                         </div>
                       </div>

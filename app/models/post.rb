@@ -31,7 +31,6 @@ class Post < ApplicationRecord
     end
   end
 
-
   def create_notification_answer!(current_user, answer_id)
     # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
     temp_ids = Answer.select(:user_id).where(post_id: id).where.not(user_id: current_user.id).distinct
@@ -56,16 +55,4 @@ class Post < ApplicationRecord
     end
     notification.save if notification.valid?
   end
-
-  def like_count(user_id)
-    user_post_id = Post.where(user_id: user_id).pluck(:id)
-    likes = Like.where(post_id: user_post_id).all
-    if likes.blank?
-      "-"
-    else
-      likes.count
-    end
-  end
-
-
 end
