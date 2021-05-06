@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   has_many :posts
   has_many :likes
-  
+  has_many :answers
+  has_many :comments
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 

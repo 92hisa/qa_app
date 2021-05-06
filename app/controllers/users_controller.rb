@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def post_list
     @post_list = current_user.posts
+    @answer_list = current_user.answers 
   end
 
   def correct_user

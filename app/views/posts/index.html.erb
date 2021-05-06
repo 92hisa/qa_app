@@ -44,7 +44,7 @@
                           <h4 class="mb-1" style="font-weight: bold;"><%= post_open.title %></h4>
                           <p><%= post_open.content %></p>
                           <% if post_open.post_image.present? %>
-                            <%= image_tag post_open.post_image.url, class: "img-fluid", style:"height: 200px; width: auto; object-fit: cover;"%>
+                            <%= image_tag post_open.post_image.url, class: "img-fluid mb-4", style:"height: 200px; width: auto; object-fit: cover;"%>
                           <% end %>
                           <div class="d-flex flex-row">
                             <li class="list-inline-item"><i class="fa fa-tags mr-1"></i><%= "#{post_open.category.root.name}/#{post_open.category.name}" %></li>
@@ -88,11 +88,11 @@
                           <h4 class="mb-1" style="font-weight: bold;"><%= post_close.title %></h4>
                           <p><%= post_close.content %></p>
                           <% if post_close.post_image.present? %>
-                            <%= image_tag post_close.post_image.url, class: "img-fluid", style:"height: 200px; width: auto; object-fit: cover;"%>
+                            <%= image_tag post_close.post_image.url, class: "img-fluid mb-4", style:"height: 200px; width: auto; object-fit: cover;"%>
                           <% end %>
                           <div class="d-flex flex-row">
                             <li class="list-inline-item"><i class="fa fa-tags mr-1"></i><%= "#{post_close.category.root.name}/#{post_close.category.name}" %></li>
-                            <div class="ml-2"id="like-icon-post-<%= post_close.id.to_s %>">
+                            <div class="ml-2" id="like-icon-post-<%= post_close.id.to_s %>">
                               <% if post_close.liked_by(current_user).present? %>
                                 <%= link_to "いいねを取り消す", post_like_path(post_close.id, post_close.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
                               <% else %>
