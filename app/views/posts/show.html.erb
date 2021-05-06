@@ -42,7 +42,7 @@
                         <%= link_to "いいね", post_likes_path(@post), method: :POST, remote: true, class: "love hide-text" %>
                       <% end %>
                     </div>
-                    <li class="list-inline-item" style="font-weight: bold;"><%= @post.likes.count %></li>
+                    <li class="list-inline-item" style="font-weight: bold;"><div id="like-text-post-<%= @post.id.to_s %>"><%= render "like_text", { likes: @post.likes } %></div></li>
                     <li class="list-inline-item" style="font-weight: bold;"><i class="far fa-comment-alt mr-1"></i><%= "#{@post.answers.count}件" %></li>
                   </div>
                 </div>

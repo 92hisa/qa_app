@@ -29,7 +29,7 @@
                 <% @post_open.each do |post_open| %>
                 <%= link_to post_path(post_open),data: {"turbolinks" => false}, class: "text-inherit" do %>
                   <div class="card mb-5">
-                    <div class="card-body pt-2 pb-2">
+                    <div class="card-body">
                       <div class="d-flex align-items-center">
                         <div class="d-flex align-items-center justify-content-between flex-column">
                           <% if post_open.user.profile_image.present? %>
@@ -55,8 +55,8 @@
                                 <%= link_to "いいね", post_likes_path(post_open), method: :POST, remote: true, class: "love hide-text" %>
                               <% end %>
                             </div>
-                            <li class="list-inline-item" style="font-weight: bold;"><%= post_open.likes.count %></li>
-                            <li class="list-inline-item"><i class="far fa-comment-alt ml-2"></i></li>
+                            <li class="list-inline-item" style="font-weight: bold;"><div id="like-text-post-<%= post_open.id.to_s %>"><%= render "like_text", { likes: post_open.likes } %></div></li>
+                            <li class="list-inline-item" style="font-weight: bold;"><i class="far fa-comment-alt ml-2 mr-1"></i><%= post_open.answers.count %></li>
                           </div>
                         </div>
                       </div>
@@ -67,13 +67,14 @@
               <% else %>
               <P>受付中の質問はありません</p>
               <% end %>
+              <%= paginate @post_open, param_name: 'post_open_page' %>
             </div>
             <div class="tab-pane fade" id="close" role="tabpanel" aria-labelledby="close-tab">
               <% if @post_close.present? %>
                 <% @post_close.each do |post_close| %>
                 <%= link_to post_path(post_close),data: {"turbolinks" => false}, class: "text-inherit" do %>
                   <div class="card mb-5">
-                    <div class="card-body pt-2 pb-2">
+                    <div class="card-body">
                       <div class="d-flex align-items-center">
                         <div class="d-flex align-items-center justify-content-between flex-column">
                           <% if post_close.user.profile_image.present? %>
@@ -99,8 +100,8 @@
                                 <%= link_to "いいね", post_likes_path(post_close), method: :POST, remote: true, class: "love hide-text" %>
                               <% end %>
                             </div>
-                            <li class="list-inline-item" style="font-weight: bold;"><%= post_close.likes.count %></li>
-                            <li class="list-inline-item"><i class="far fa-comment-alt ml-2"></i></li>
+                            <li class="list-inline-item" style="font-weight: bold;"><div id="like-text-post-<%= post_close.id.to_s %>"><%= render "like_text", { likes: post_close.likes } %></div></li>
+                            <li class="list-inline-item" style="font-weight: bold;"><i class="far fa-comment-alt ml-2 mr-1"></i><%= post_close.answers.count %></li>
                           </div>
                         </div>
                       </div>
@@ -109,8 +110,9 @@
                 <% end %>
                 <% end %>
               <% else %>
-              <P>受付中の質問はありません</p>
+              <P>回答済の質問はありません</p>
               <% end %>
+              <%= paginate @post_close, param_name: 'post_close_page' %>
             </div>
           </div>
         </div>
