@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     @answer = Answer.find(params[:answer_id])
     @comment = Comment.new(comment_params)
     if @comment.save
+      @answer.create_notification_comment!(current_user, @comment.id)
       flash[:notice] = "コメントしました"
       redirect_to root_path
     else
