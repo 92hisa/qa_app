@@ -6,19 +6,23 @@
     <% end %>
     <!-- Mobile view nav wrap -->
     <ul class="navbar-nav navbar-right-wrap ml-auto d-lg-none d-flex nav-top-wrap ">
-
+      <% if user_signed_in?%>
         <li class="d-inline-block stopevent">
-
+          <% if unchecked_notifications.any? %>
+            <%= link_to notifications_path,data: {"turbolinks" => false} do %>
               <div class="btn btn-light btn-icon rounded-circle text-muted indicator indicator-primary">
                 <i class="fe fe-bell"></i>
               </div>
-
-
-                <div class="btn btn-light btn-icon rounded-circle text-muted">
-                  <i class="fe fe-bell"></i>
-                </div>
-
+            <% end %>
+          <% else %>
+            <%= link_to notifications_path,data: {"turbolinks" => false} do  %>
+              <div class="btn btn-light btn-icon rounded-circle text-muted">
+                <i class="fe fe-bell"></i>
+              </div>
+            <% end %>
+          <% end %>
         </li>
+      <% end %>
       <% if user_signed_in?%>
       <li class="dropdown ml-2">
         <a class="rounded-circle" href="#!" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,19 +45,29 @@
           <div class="dropdown-divider"></div>
           <ul class="list-unstyled">
             <li>
+              <%= link_to user_path(id: current_user),data: {"turbolinks" => false}, class: "dropdown-item" do %>
               <i class="fe fe-user mr-2"></i>プロフィール
+              <% end %>
             </li>
             <li>
-              <i class="far fa-heart mr-2"></i>フォローリスト
+              <%= link_to posts_path,data: {"turbolinks" => false}, class: "dropdown-item" do %>
+                <i class="far fa-lightbulb mr-2"></i> Ｑ&Ａ一覧
+              <% end %>
             </li>
             <li>
-              <i class="fe fe-star mr-2"></i>お気に入りリスト
+              <%= link_to categories_path,data: {"turbolinks" => false}, class: "dropdown-item" do %>
+                <i class="fe fe-search mr-2"></i>カテゴリ
+              <% end %>
             </li>
             <li>
-              <i class="far fa-clipboard mr-2"></i>購入履歴
+              <%= link_to new_post_path,data: {"turbolinks" => false}, class: "dropdown-item" do %>
+                <i class="far fa-hand-paper mr-2"></i>質問する
+              <% end %>
             </li>
             <li>
-              <i class="far fa-id-badge nav-icon mr-2"></i>プロフィール編集
+              <%= link_to edit_user_registration_path(current_user),data: {"turbolinks" => false}, class: "dropdown-item" do %>
+                <i class="fas fa-user-edit nav-icon mr-2"></i>プロフィール編集
+              <% end %>
             </li>
             <li>
               <%= link_to post_list_user_path(current_user),data: {"turbolinks" => false}, class: "dropdown-item" do %>
