@@ -22,6 +22,12 @@
             </div>
             <% if @user.id == current_user.id %>
             <li class="list-unstyled"><i class="fa fa-envelope nav-icon mr-2"></i><%= @user.email %></li>
+            <li class="list-unstyled"><i class="far fa-calendar-alt nav-icon mr-2"></i><%= @user.birth_date %></li>
+            <% end %>
+            <% if @user.gender == "man" %>
+              <li class="list-unstyled"><i class="fa fa-user nav-icon mr-2"></i>男性</li>
+            <% else %>
+              <li class="list-unstyled"><i class="fa fa-user nav-icon mr-2"></i>女性</li>
             <% end %>
           </div>
         </div>
