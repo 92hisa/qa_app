@@ -1,131 +1,70 @@
-<% if @user.id == current_user.id %>
-  <%= render partial: 'mypage/profile_heading', locals: { user: @user } %>
-<% else %>
-  <%= render partial: 'other_user_profile_heading', locals: { user: @user } %>
-<% end %>
+<%= render partial: 'nonpublic_user_profile_heading', locals: { user: @user } %>
 <div class="py-3">
   <div class="container">
     <div class="row">
-      <div class="col-xl-9 col-lg-9 col-md-12 col-12 mb-5 mt-4 ">
-        <ul class="nav nav-lb-tab mb-6" id="tab" role="tablist">
-          <li class="nav-item ml-0" role="presentation">
-            <a class="nav-link active font-size-s" style="font-weight: bold;" id="profile-tab" data-toggle="pill" href="#profile" role="tab"
-              aria-controls="profile" aria-selected="true">Profile</a>
-          </li>
-          <li class="nav-item" role="presentation">
-            <a class="nav-link" style="font-weight: bold;" id="plan-tab" data-toggle="pill" href="#plan" role="tab"
-              aria-controls="plan" aria-selected="false">プラン <span class="text-muted font-size-xs"></span></a>
-          </li>
-          <li class="nav-item" role="presentation">
-            <a class="nav-link" style="font-weight: bold;" id="review-tab" data-toggle="pill" href="#review" role="tab"
-              aria-controls="review" aria-selected="false">レビュー<span class="text-muted font-size-xs"></span></a>
-          </li>
-        </ul>
-        <!-- Tab Content -->
-        <div class="tab-content" id="tabContent">
-          <!-- Tab Pane -->
-          <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <div class="card">
-              <div class="card-body">
-                <div class="mb-4">
-                  <h3 class="mb-3 border-bottom">自己紹介</h3>
-                  <p></p>
-                </div>
-                <h3 class="mb-3 border-bottom">これまでの経験や実績</h3>
-                <div class="row mb-3">
-                  <div class="col-12 col-md-12">
-                    <p></p>
-                  </div>
-                </div>
-              </div>
+      <div class="col-xl-9 col-lg-9 col-md-12 col-12 mb-5">
+        <div class="card mt-3">
+          <div class="card-body">
+            <div class="border-bottom mb-3 d-lg-flex justify-content-between align-items-center">
+              <h3>自己紹介</h3>
             </div>
-          </div>
-          <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <p>登録されていません</p>
-          </div>
-          <div class="tab-pane fade" id="plan" role="tabpanel" aria-labelledby="plan-tab">
-            <div class="mb-2" style="font-weight: bold;">
-              <h5 class="mb-0">掲載中のプラン</h5>
-            </div>
-            <div class="card mb-3">
-              <div class="card-body">
-                <!-- List group -->
-                <ul class="list-group list-group-flush">
-                  <!-- List group item -->
-                  <li class="list-group-item px-0 pb-3 pt-0">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <div class="d-lg-flex align-items-center">
-                          <div>
-                            <img src="/geeks-1.0.1/dist/assets/images/course/course-wordpress.jpg" alt="" class="rounded img-4by3-lg" />
-                          </div>
-                          <div class="ml-lg-3 mt-2 mt-lg-0">
-                            <h4 class="text-inherit">
-                            </h4>
-                            <ul class="list-inline font-size-xs mb-0 text-inherit">
-                              <li class="list-inline-item">
-                                <i class="mdi mdi-star text-warning mr-1"></i>
-                              </li>
-                              <li class="list-inline-item">
-                                <i class="fa fa-comments mr-1"></i>
-                                <span class="text-muted">
-                                </span>
-                              </li>
-                              <li class="list-inline-item">
-                                <i class="fa fa-tags mr-1"></i>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      <div>
-                        <!-- Dropdown -->
-                        <span class="dropdown dropleft">
-                          <i class="far fa-clock mr-1"></i>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="plan" role="tabpanel" aria-labelledby="plan-tab">
-            <div class="mb-2" style="font-weight: bold;">
-              <h5 class="mb-0">掲載中のプランはありません</h5>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-            <div class=" mb-2 d-sm-flex flex-xs-sm-column align-items-center">
-              <h6 class="mr-5 mb-0"></h6>
-              <div class="d-flex align-items-center">
-                <h6 class="mb-0 mr-2"></h6>
-                <span class="mb-2 font-weight-bold" id="average-review-rating-main" data-score=></span>
-              </div>
-              <!-- JQ評価 -->
-
-            </div>
-            <div class="mb-3">
-
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div class="d-flex align-items-center">
-
-
-                    <div class="ml-2 lh-1">
-                      <h4 class="mb-1"></h4>
-                      <span class="ml-1 font-size-xs text-muted"></span>
-                    </div>
-                  </div>
-                  <div class="d-flex mb-5">
-                    <span></span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
+            <% if @user.about_me.present? %>
+              <p><%= safe_join(@user.about_me.split("\n"),tag(:br)) %></p>
+            <% else %>
+              <%= "登録されていません。"%>
+            <% end %>
           </div>
         </div>
+        <div class="border-bottom mt-5 mb-3 d-lg-flex align-items-center">
+          <h3 class="badge badge-light-danger text-danger mr-2">受付中</h3>
+          <h3><%= "#{@user.name}さんの質問" %></h3>
+        </div>
+        <% if @user_open_posts.present? %>
+          <% @user_open_posts.each do |user_open_post| %>
+          <%= link_to post_path(user_open_post),data: {"turbolinks" => false}, class: "text-inherit" do %>
+          <div class="card mb-5">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div class="d-flex flex-column justify-content-between align-items-center mb-2">
+                  <% if user_open_post.user.profile_image.present? %>
+                  <%= image_tag user_open_post.user.profile_image.url, class: "rounded-circle avatar-md mb-2" %>
+                  <% else %>
+                  <%= image_tag "profile_default_img_128.png", class: "rounded-circle avatar-md mb-2" %>
+                  <% end %>
+                  <div class="d-flex flex-column mb-2 text-center">
+                    <h4 class="mb-1"><%= user_open_post.user.name %></h4>
+                    <span class="font-size-xs text-muted"><%= time_ago_in_words(user_open_post.created_at) + "前" %></span>
+                  </div>
+                </div>
+                <div class="ml-3 d-flex flex-column">
+                  <h4 class="mb-3" style="font-weight: bold;"><%= user_open_post.title %></h4>
+                  <p class="mb-3" style="font-weight: bold;"><%= user_open_post.content %></p>
+                  <% if user_open_post.post_image.present? %>
+                    <%= image_tag user_open_post.post_image.url, class: "img-fluid mb-4", style:"height: 200px; width: auto; object-fit: cover;"%>
+                  <% end %>
+                  <div class="d-flex flex-row">
+                    <li class="list-inline-item"><i class="fa fa-tags mr-1"></i><%= "#{user_open_post.category.root.name}/#{user_open_post.category.name}" %></li>
+                    <div class="ml-2" id="like-icon-post-<%= user_open_post.id.to_s %>">
+                      <% if user_open_post.liked_by(current_user).present? %>
+                        <%= link_to "いいねを取り消す", post_like_path(user_open_post.id, user_open_post.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
+                      <% else %>
+                        <%= link_to "いいね", post_likes_path(user_open_post), method: :POST, remote: true, class: "love hide-text" %>
+                      <% end %>
+                    </div>
+                    <li class="list-inline-item" style="font-weight: bold;"><div id="like-text-post-<%= user_open_post.id.to_s %>"><%= render "posts/like_text", { likes: user_open_post.likes } %></div></li>
+                    <li class="list-inline-item" style="font-weight: bold;"><i class="far fa-comment-alt mr-1"></i><%= "#{user_open_post.answers.count}件" %></li>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <% end %>
+        <% else %>
+          <p>投稿された質問はありません</p>
+        <% end %>
       </div>
-
+      <%= render 'action_count' %>
     </div>
   </div>
 </div>

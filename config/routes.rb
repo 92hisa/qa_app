@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :update] do
     get :post_list, on: :member
+    get :mypage, on: :member
   end
 
   resources :posts do
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
     end
   end
   resources :categories, only: :index
-  
+
   resources :notifications, only: :index do
     collection do
       delete 'destroy_all'

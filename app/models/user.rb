@@ -25,4 +25,20 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
+
+  def likes_count
+    post_ids = []
+    Post.where(user_id: id).each do |p|
+      post_ids << p.id
+    end
+    likes = Like.where(post_id: post_ids).count
+  end
+
+  def answers_count
+    post_ids = []
+    Post.where(user_id: id).each do |p|
+      post_ids << p.id
+    end
+    answers = Answer.where(post_id: post_ids).count
+  end
 end

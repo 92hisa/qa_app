@@ -57,5 +57,15 @@ class Post < ApplicationRecord
     notification.save if notification.valid?
   end
 
+  def like_count(user_id)
+    user_post_id = Post.where(user_id: user_id).pluck(:id)
+    likes = Like.where(post_id: user_post_id).all
+    if likes.blank?
+      "-"
+    else
+      likes.count
+    end
+  end
+
 
 end
