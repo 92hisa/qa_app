@@ -1,9 +1,14 @@
 body {
-  background-color: #EFFFF8;
+  background-color: #F7F7F7;
 }
 
 .bg-primary {
   background-color: #98FB98!important;
+}
+
+.card-img, .card-img-bottom, .card-img-top {
+    flex-shrink: 0;
+    width: 50%;
 }
 
 .text-dark-warning {
