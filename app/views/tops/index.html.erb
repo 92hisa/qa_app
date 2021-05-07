@@ -5,9 +5,13 @@
       <div class=" col-xl-12 col-lg-12 col-md-12 text-lg-right text-center">
         <%= image_tag 'Layer 0.png', class: "img-fluid mt-2" %>
         <div class="py-2 text-center">
-          <p class="lead" style="font-size: 16px;">意外と身近にいない○○経験者。<br class="d-sm-none" />そんなときは、<span style="font-weight: bold;">Keiken</span>で質問してみましょう。
+          <p class="lead" style="font-size: 16px;">意外と身近にいない○○経験者。<br class="d-sm-none"/>そんなときは<span style="font-weight: bold;">Keiken</span>で質問してみましょう。
           <br>経験者があなたの質問に答えてくれます。</p>
         </div>
+        <div class="col-12">
+          <div class="d-flex align-items-center justify-content-center text-center mb-3">
+            <%= link_to "さっそく始める", new_user_registration_path, class: "btn btn-success btn-rounded pl-10 pr-10 rounded-lg" %>
+          </div>
         </div>
       </div>
     </div>
