@@ -24,44 +24,53 @@
     <div class="col-12 text-center mb-3">
       <h1 style="font-weight: bold;">最新の質問</h1>
     </div>
-    <div class="row col-12">
-      <% if @recent_posts.present? %>
-        <% @recent_posts.each do |recent_post| %>
-        <%= link_to post_path(recent_post),data: {"turbolinks" => false}, class: "text-inherit" do %>
-        <div class="d-flex justify-beween-center align-items-center">
-          <div class="col-12">
-            <div class="card mb-5 border">
-              <div class="card-body">
-                <div class="d-flex align-items-center">
-                  <div class="d-flex align-items-center justify-content-between flex-column">
-                    <% if recent_post.user.profile_image.present? %>
-                      <%= image_tag recent_post.user.profile_image.url, class: "avatar-lg rounded-circle border-width-4 border-white" %>
-                      <%= recent_post.user.name %>
-                    <% else %>
-                      <%= image_tag "profile_default_img_128.png", class: "avatar-lg rounded-circle border-width-4 border-white" %>
-                      <%= recent_post.user.name %>
-                    <% end %>
-                  </div>
-                  <div class="ml-3 d-flex flex-column">
-                    <h4 class="mb-1" style="font-weight: bold;"><%= recent_post.title.truncate(25) %></h4>
-                    <p><%= recent_post.content.truncate(30) %></p>
-                    <div class="d-flex flex-row">
-                      <li class="list-inline-item"><i class="fa fa-tags mr-1"></i><%= "#{recent_post.category.root.name}/#{recent_post.category.name}" %></li>
-                      <li class="list-inline-item" style="font-weight: bold;"><i class="far fa-heart ml-2 mr-1"></i><%= recent_post.likes.count %></li>
-                      <li class="list-inline-item" style="font-weight: bold;"><i class="far fa-comment-alt ml-2 mr-1"></i><%= recent_post.answers.count %></li>
+    <% if @recent_posts.present? %>
+      <% @recent_posts.each do |recent_post| %>
+      <%= link_to post_path(recent_post),data: {"turbolinks" => false}, class: "text-inherit" do %>
+      <div class="card mb-5" style="border: 1px solid">
+        <div class="card-body p-1 p-sm-3">
+          <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center justify-content-between flex-column">
+              <% if recent_post.user.profile_image.present? %>
+                <%= image_tag recent_post.user.profile_image.url, class: "avatar-lg rounded-circle border-width-4 border-white" %>
+                <%= recent_post.user.name %>
+              <% else %>
+                <%= image_tag "profile_default_img_128.png", class: "avatar-lg rounded-circle border-width-4 border-white" %>
+                <%= recent_post.user.name %>
+              <% end %>
+            </div>
+            <div class="ml-3 d-flex flex-column">
+              <% if recent_post.post_image.present? %>
+              <h4 class="mb-1" style="font-weight: bold;"><%= recent_post.title.truncate(30) %><i class="far fa-image font-size-lg"></i></h4>
+              <% else %>
+              <h4 class="mb-1" style="font-weight: bold;"><%= recent_post.title.truncate(30) %>
+              <% end %>
+              <p><%= recent_post.content.truncate(50) %></p>
+              <div class="d-flex flex-row">
+                <li class="list-inline-item"><i class="fa fa-tags mr-1"></i><%= "#{recent_post.category.root.name}/#{recent_post.category.name}" %></li>
+                  <% if user_signed_in? %>
+                    <div class="ml-2"id="like-icon-post-<%= recent_post.id.to_s %>">
+                        <% if recent_post.liked_by(current_user).present? %>
+                          <%= link_to "いいねを取り消す", post_like_path(recent_post.id, recent_post.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
+                        <% else %>
+                          <%= link_to "いいね", post_likes_path(recent_post), method: :POST, remote: true, class: "love hide-text" %>
+                        <% end %>
                     </div>
-                  </div>
-                </div>
+                    <li class="list-inline-item" style="font-weight: bold;"><div id="like-text-post-<%= recent_post.id.to_s %>"><%= render "like_text", { likes: recent_post.likes } %></div></li>
+                  <% else %>
+                    <li class="list-inline-item" style="font-weight: bold;"><i class="far fa-heart ml-2 mr-1"></i><%= recent_post.likes.count %></li>
+                  <% end %>
+                <li class="list-inline-item" style="font-weight: bold;"><i class="far fa-comment-alt ml-2 mr-1"></i><%= recent_post.answers.count %></li>
               </div>
             </div>
           </div>
         </div>
-        <% end %>
-        <% end %>
-      <% else %>
-      <P>受付中の質問はありません</p>
+      </div>
       <% end %>
-    </div>
+      <% end %>
+    <% else %>
+    <P>受付中の質問はありません</p>
+    <% end %>
     <div class="text-right">
     <%= link_to "もっと見る", posts_path, class: "text-inherit font-size-md"%>
     </div>

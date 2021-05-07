@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create]
     end
   end
-  resources :categories, only: :index
+  resources :categories, only: [:index, :show]
 
   resources :notifications, only: :index do
     collection do

@@ -29,7 +29,7 @@
               <% @post_open.each do |post_open| %>
               <%= link_to post_path(post_open),data: {"turbolinks" => false}, class: "text-inherit" do %>
                 <div class="card mb-5">
-                  <div class="card-body">
+                  <div class="card-body p-1 p-sm-3">
                     <div class="d-flex align-items-center">
                       <div class="d-flex align-items-center justify-content-between flex-column">
                         <% if post_open.user.profile_image.present? %>
@@ -41,11 +41,12 @@
                         <% end %>
                       </div>
                       <div class="ml-3 d-flex flex-column">
-                        <h4 class="mb-1" style="font-weight: bold;"><%= post_open.title %></h4>
-                        <p><%= post_open.content %></p>
                         <% if post_open.post_image.present? %>
-                          <%= image_tag post_open.post_image.url, class: "img-fluid mb-4", style:"height: 200px; width: auto; object-fit: cover;"%>
+                        <h4 class="mb-1" style="font-weight: bold;"><%= post_open.title.truncate(30) %><i class="far fa-image font-size-lg"></i></h4>
+                        <% else %>
+                        <h4 class="mb-1" style="font-weight: bold;"><%= post_open.title.truncate(30) %>
                         <% end %>
+                        <p><%= post_open.content.truncate(50) %></p>
                         <div class="d-flex flex-row">
                           <li class="list-inline-item"><i class="fa fa-tags mr-1"></i><%= "#{post_open.category.root.name}/#{post_open.category.name}" %></li>
                             <% if user_signed_in? %>

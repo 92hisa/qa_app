@@ -7,7 +7,7 @@
         <div class="col-xl-9 col-lg-9 col-md-12 col-12 mb-5 mt-4">
           <div class="border-bottom pb-2 mb-4 d-lg-flex justify-content-between align-items-center">
             <div>
-              <h1 class="mb-0 h2">Q&A一覧</h1>
+              <h1 class="mb-0 h2">絞り込み結果</h1>
             </div>
           </div>
           <div>
@@ -28,12 +28,16 @@
                           <% end %>
                         </div>
                         <div class="ml-3 d-flex flex-column">
-                          <h4 class="mb-1" style="font-weight: bold;"><%= search.title %></h4>
-                          <p><%= search.content %></p>
+                          <% if search.post_image.present? %>
+                          <h4 class="mb-1" style="font-weight: bold;"><%= search.title.truncate(30) %><i class="far fa-image font-size-lg"></i></h4>
+                          <% else %>
+                          <h4 class="mb-1" style="font-weight: bold;"><%= search.title.truncate(30) %>
+                          <% end %>
+                          <p><%= search.content.truncate(50) %></p>
                         </div>
                         <div style="margin-left: auto;">
                           <% if search.post_image.present? %>
-                            <%= image_tag search.post_image.url, class: "img-fluid", style:"height: 100px; width: auto; object-fit: cover;"%>
+                            <%= image_tag search.post_image.url, class: "img-fluid d-none d-md-block", style:"height: 100px; width: auto; object-fit: cover;"%>
                           <% end %>
                         </div>
                       </div>
