@@ -9,7 +9,7 @@
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
           <div class="mb-4">
-            <h1 class="mb-1 font-weight-bold text-center" style="color: #2DAADB;">ログイン</h1>
+            <h1 class="mb-1 font-weight-bold text-center" style="color: #00DB83;">ログイン</h1>
           </div>
           <!-- Form -->
           <form>
@@ -37,10 +37,10 @@
               <%= f.submit "ログイン", class: "btn btn-success btn-block" %>
             </div>
             <div class="mt-3">
-              <span>アカウントをお持ちでない方はこちら「<%= link_to "無料登録", new_user_registration_path,data: {"turbolinks" => false}, style: "color: #2DAADB;"%> 」</span>
+              <span>アカウントをお持ちでない方はこちら「<%= link_to "無料登録", new_user_registration_path,data: {"turbolinks" => false}, style: "color: #00DB83;"%> 」</span>
             </div>
             <div class="mt-3 text-center">
-              <%= link_to "パスワードをお忘れの方はこちら", new_user_password_path,data: {"turbolinks" => false}, style: "color: #2DAADB;"%>
+              <%= link_to "パスワードをお忘れの方はこちら", new_user_password_path,data: {"turbolinks" => false}, style: "color: #00DB83;"%>
             </div>
           </form>
           <% end %>
