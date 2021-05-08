@@ -56,7 +56,7 @@
                           <%= link_to "いいね", post_likes_path(recent_post), method: :POST, remote: true, class: "love hide-text" %>
                         <% end %>
                     </div>
-                    <li class="list-inline-item" style="font-weight: bold;"><div id="like-text-post-<%= recent_post.id.to_s %>"><%= render "like_text", { likes: recent_post.likes } %></div></li>
+                    <li class="list-inline-item" style="font-weight: bold;"><div id="like-text-post-<%= recent_post.id.to_s %>"><%= render "posts/like_text", { likes: recent_post.likes } %></div></li>
                   <% else %>
                     <li class="list-inline-item" style="font-weight: bold;"><i class="far fa-heart ml-2 mr-1"></i><%= recent_post.likes.count %></li>
                   <% end %>
