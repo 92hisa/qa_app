@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users,
-    controllers: { registrations: 'registrations' }
+             controllers: { registrations: 'registrations' }
   root 'tops#index'
   get :dynamic_select_category, to: 'posts#dynamic_select_category'
   get '/search', to: 'posts#search', as: :search

@@ -1,5 +1,4 @@
 class AnswersController < ApplicationController
-
   def new
     @ansewr = Answer.new
     @post = Post.find(params[:post_id])

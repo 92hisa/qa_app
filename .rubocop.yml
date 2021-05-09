@@ -1,0 +1,18 @@
+inherit_from:
+  - .rubocop_airbnb.yml
+
+Layout/LineLength:
+  Max: 150
+
+AllCops:
+  Exclude:
+      - 'db/**/*'
+      - 'bin/*'
+      - 'config/environments/*'
+      - 'config/application.rb'
+      - 'config/initializers/*'
+      - 'config/spring.rb'
+      - 'lib/tasks/*'
+      - 'vendor/**/*'
+      - 'public/geeks-1.0.1/dist/assets/libs/odometer/config.rb'
+      - 'node_modules/node-sass/**/*'

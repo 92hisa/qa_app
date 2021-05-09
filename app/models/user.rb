@@ -15,7 +15,6 @@ class User < ApplicationRecord
   mount_uploader :profile_image, ImageUploader
 
   def update_without_current_password(params, *options)
-
     if params[:password].blank? && params[:password_confirmation].blank?
       params.delete(:password)
       params.delete(:password_confirmation)
@@ -31,7 +30,7 @@ class User < ApplicationRecord
     Post.where(user_id: id).each do |p|
       post_ids << p.id
     end
-    likes = Like.where(post_id: post_ids).count
+    Like.where(post_id: post_ids).count
   end
 
   def answers_count
@@ -39,6 +38,6 @@ class User < ApplicationRecord
     Post.where(user_id: id).each do |p|
       post_ids << p.id
     end
-    answers = Answer.where(post_id: post_ids).count
+    Answer.where(post_id: post_ids).count
   end
 end
