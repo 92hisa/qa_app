@@ -10,7 +10,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum gender: { man: 0, woman: 1 }
-  validates :name, presence: true, length: { maximum: 50 }
+  validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
+  validates :password, confirmation: true
+  validates :password_confirmation, presence: true
+  validates :birth_date, presence: true
+  validates :gender, presence: true
 
   mount_uploader :profile_image, ImageUploader
 
