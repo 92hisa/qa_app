@@ -20,34 +20,29 @@
             <% end %>
           </li>
           <li class="nav-item">
-
-            <i class="far fa-envelope nav-icon"></i>メッセージ
-
-          </li>
-          <li class="nav-item">
-
-            <i class="fe fe-bell nav-icon"></i>通知
-
-          </li>
-          <li class="nav-item">
-
-            <i class="far fa-heart nav-icon"></i>フォローリスト
-
-          </li>
-          <li class="nav-item">
-
-            <i class="fe fe-star nav-icon"></i>お気に入りリスト
-
-          </li>
-          <li class="nav-item">
-
-            <i class="far fa-clipboard nav-icon"></i>購入履歴
-
-          </li>
-          <li class="nav-item">
             <%= link_to user_path(id: current_user),data: {"turbolinks" => false}, class: "nav-link" do %>
             <i class="fe fe-user nav-icon"></i>プロフィール
             <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to notifications_path,data: {"turbolinks" => false}, class: "nav-link" do %>
+            <i class="fe fe-bell nav-icon"></i>通知
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to posts_path,data: {"turbolinks" => false}, class: "nav-link" do %>
+              <i class="far fa-lightbulb nav-icon"></i>Ｑ&Ａ一覧
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to categories_path,data: {"turbolinks" => false}, class: "nav-link" do %>
+              <i class="fe fe-search nav-icon"></i>カテゴリ
+            <% end %>
+          </li>
+          <li class="nav-item">
+          <%= link_to new_post_path,data: {"turbolinks" => false}, class: "nav-link" do %>
+            <i class="far fa-hand-paper nav-icon"></i>質問する
+          <% end %>
           </li>
           <li class="dropdown p-1 pl-2">
             <a class="nav-item text-inherit" href="#!" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -61,14 +56,16 @@
               <% end %>
             </li>
             <li class="nav-item">
-
-                <i class="far fa-edit nav-icon"></i>経験者プラン
-
+              <%= link_to post_list_user_path(current_user),data: {"turbolinks" => false}, class: "nav-link" do %>
+                <i class="far fa-edit nav-icon"></i>あなたの投稿
+              <% end %>
             </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../index.html"><i class="fas fa-sign-out-alt nav-icon"></i>ログアウト</a>
+            <%= link_to destroy_user_session_path,data: {"turbolinks" => false}, method: :delete, class: "nav-link" do %>
+            <i class="fas fa-sign-out-alt nav-icon"></i>ログアウト
+            <% end %>
           </li>
         </ul>
       </div>

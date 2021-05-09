@@ -4,11 +4,16 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @user_open_posts = @user.posts.where(status: 0).order(created_at: 'desc')
   end
 
   def post_list
     @post_list = current_user.posts
-    @answer_list = current_user.answers 
+    @answer_list = current_user.answers
+  end
+
+  def mypage
+    @user = current_user
   end
 
   def correct_user

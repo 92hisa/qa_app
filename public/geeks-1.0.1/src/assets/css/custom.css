@@ -1,9 +1,14 @@
 body {
-  background-color: #F1F9FC;
+  background-color: #F7F7F7;
 }
 
 .bg-primary {
-  background-color: #DCF0F9 !important;
+  background-color: #98FB98!important;
+}
+
+.card-img, .card-img-bottom, .card-img-top {
+    flex-shrink: 0;
+    width: 50%;
 }
 
 .text-dark-warning {
@@ -11,29 +16,29 @@ body {
 }
 
 .bg-light-warning {
-  background-color: #2DAADB !important;
+  background-color: #00DB83 !important;
 }
 
 .nav-lb-tab .nav-item .nav-link.active,
 .nav-lb-tab .nav-item .nav-link:hover {
   background-color: transparent;
-  border-bottom: 2px solid #2DAADB;
-  color: #2DAADB;
+  border-bottom: 2px solid #00DB83;
+  color: #00DB83;
 }
 
 .navbar-default .navbar-nav .nav-item .nav-link:hover {
-  color: #2DAADB;
+  color: #00DB83;
 }
 
 .btn-success {
     color: #fff;
-    background-color: #2DAADB;
-    border-color: #2DAADB;
+    background-color: #00DB83;
+    border-color: #00DB83;
 }
 
 .btn-outline-success {
-    color: #2DAADB;
-    border-color: #2DAADB;
+    color: #00DB83;
+    border-color: #00DB83;
 }
 
 .pb-20, .py-20 {
@@ -45,38 +50,38 @@ body {
 
 .btn-outline-success:hover {
     color: #fff;
-    background-color: #2DAADB;
-    border-color: #2DAADB;
+    background-color: #00DB83;
+    border-color: #00DB83;
 }
 
 .btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active, .show > .btn-success.dropdown-toggle {
     color: #fff;
-    background-color: #2DAADB;
-    border-color: #2DAADB;
+    background-color: #00DB83;
+    border-color: #00DB83;
 }
 
 .btn-success:focus, .btn-success.focus {
     color: #fff;
-    background-color: #1F8CB7;
-    border-color: #1F8CB7;
+    background-color: #00BC6E;
+    border-color: #00BC6E;
     box-shadow: 0 0 0 0.2rem rgb(72 180 97 / 50%);
 }
 
 .btn-success:hover {
     color: #fff;
-    background-color: #1F8CB7;
-    border-color: #1F8CB7;
+    background-color: #00BC6E;
+    border-color: #00BC6E;
 }
 
 .sidenav.navbar .navbar-nav .nav-item .nav-link:hover {
     background-color: #dcf4f4;
-    color: #2DAADB;
+    color: #00DB83;
 }
 
 .nav-lt-tab .nav-item .nav-link.active, .nav-lt-tab .nav-item .nav-link:hover {
     background-color: transparent;
-    border-top: 2px solid #2DAADB;
-    color: #2DAADB;
+    border-top: 2px solid #00DB83;
+    color: #00DB83;
     font-weight: bold;
 }
 
@@ -89,43 +94,43 @@ body {
 }
 
 .navbar .navbar-toggler {
-    border: 1px solid #2DAADB;
+    border: 1px solid #00DB83;
 }
 
 .navbar .navbar-toggler .bottom-bar {
-    background-color: #2DAADB;
+    background-color: #00DB83;
 }
 
 .navbar .navbar-toggler .top-bar {
-    background-color: #2DAADB;
+    background-color: #00DB83;
 }
 
 .navbar .navbar-toggler.collapsed .bottom-bar {
-    background-color: #2DAADB;
+    background-color: #00DB83;
 }
 
 .navbar .navbar-toggler.collapsed .icon-bar {
-  background-color: #2DAADB;
+  background-color: #00DB83;
 }
 
 a:hover {
-    color: #2DAADB;
+    color: #00DB83;
 }
 
 a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover {
-    background-color: #2DAADB!important;
+    background-color: #00DB83!important;
 }
 
 a {
-    color: #2DAADB;
+    color: #00DB83;
 }
 
 .dropdown-item:hover {
-  color: #2DAADB;
+  color: #00DB83;
 }
 
 .form-control:focus {
-    border-color: #2DAADB;
+    border-color: #00DB83;
 }
 
 .btn-lg {
@@ -175,7 +180,7 @@ a {
 
 /* 表示しているページ番号のデザイン */
 .pagination>.active>a {
-  background: #93c9ff!important;     /*背景の色を変える*/
+  background: #00DB83!important;     /*背景の色を変える*/
   border-radius: 30px!important;     /*角を丸くする*/
 }
 
@@ -188,6 +193,81 @@ a {
     z-index: 2;
     color: #fff;
     text-decoration: none;
-    background-color: #93c9ff!important;
-    border-color: #93c9ff!important;
+    background-color: #00DB83!important;
+    border-color: #00DB83!important;
+}
+
+#post-img-prev {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
+
+.user-edit-page {
+  max-width: 414px;
+  margin: 0 auto;
+  .profile {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    marigin: 24px 0 12px;
+    &-default-img {
+      height: 128px;
+      width: 128px;
+      border-radius: 50%;
+      background-image: url("~profile_default_img_128.png");
+      background-size: contain;
+      &>input {
+        display: none;
+      }
+    }
+    &-img {
+      height: 128px;
+      width: 128px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    &-name {
+      font-size: 24px;
+    }
+    &-img-upload {
+      margin-top: 12px;
+      padding: 8px 12px;
+      font-size: 14px;
+      color: #fff;
+      background-color: #FD3378;
+      border-radius: 8px;
+      cursor: pointer;
+      &>input {
+        display: none;
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.user-edit__submit-btn {
+  background-color: #FD3378;
+  height: 38px;
+  margin-bottom: 24px;
+}
+
+#profile-img-prev {
+  height: 128px;
+  width: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media (min-width: 414px) {
+  .user-edit-page {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    margin: 8px auto;
+  }
 }

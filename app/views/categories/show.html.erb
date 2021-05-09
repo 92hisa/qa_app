@@ -1,0 +1,131 @@
+<div class="p-lg-5 py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-3 col-lg-3 col-md-12 col-12 mt-md-15">
+        <%= render partial: 'posts/search', locals: { search_word: @search_word } %>
+      </div>
+      <div class="col-xl-9 col-lg-9 col-md-12 col-12 mb-5 mt-4">
+        <div class="border-bottom pb-2 mb-4 d-lg-flex justify-content-between align-items-center">
+          <div>
+            <h1 class="mb-0 h2">Q&A一覧</h1>
+          </div>
+          <div>
+            <%= link_to "カテゴリからさがす", categories_path,data: {"turbolinks" => false}, class: "text-inherit" %>
+          </div>
+        </div>
+        <ul class="nav nav-lb-tab mb-4" id="tab" role="tablist">
+          <li class="nav-item ml-0" role="presentation">
+            <a class="nav-link active font-size-s" style="font-weight: bold;" id="open-tab" data-toggle="pill" href="#open" role="tab"
+              aria-controls="open" aria-selected="true">回答受付中</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" style="font-weight: bold;" id="close-tab" data-toggle="pill" href="#close" role="tab"
+              aria-controls="close" aria-selected="false">解決済み<span class="text-muted font-size-xs"></span></a>
+          </li>
+        </ul>
+        <div class="tab-content" id="tabContent">
+          <div class="tab-pane fade show active" id="open" role="tabpanel" aria-labelledby="open-tab">
+            <% if @open_category_posts.present? %>
+              <% @open_category_posts.each do |open_category_post| %>
+              <%= link_to post_path(open_category_post),data: {"turbolinks" => false}, class: "text-inherit" do %>
+                <div class="card mb-5">
+                  <div class="card-body">
+                    <div class="d-flex align-items-center">
+                      <div class="d-flex align-items-center justify-content-between flex-column">
+                        <% if open_category_post.user.profile_image.present? %>
+                          <%= image_tag open_category_post.user.profile_image.url, class: "avatar-lg rounded-circle border-width-4 border-white" %>
+                          <%= open_category_post.user.name %>
+                        <% else %>
+                          <%= image_tag "profile_default_img_128.png", class: "avatar-lg rounded-circle border-width-4 border-white" %>
+                          <%= open_category_post.user.name %>
+                        <% end %>
+                      </div>
+                      <div class="ml-3 d-flex flex-column">
+                        <% if open_category_post.post_image.present? %>
+                        <h4 class="mb-1" style="font-weight: bold;"><%= open_category_post.title.truncate(30) %><i class="far fa-image font-size-lg"></i></h4>
+                        <% else %>
+                        <h4 class="mb-1" style="font-weight: bold;"><%= open_category_post.title.truncate(30) %>
+                        <% end %>
+                        <p><%= open_category_post.content.truncate(50) %></p>
+                        <div class="d-flex flex-row">
+                          <li class="list-inline-item"><i class="fa fa-tags mr-1"></i><%= "#{open_category_post.category.root.name}/#{open_category_post.category.name}" %></li>
+                            <% if user_signed_in? %>
+                              <div class="ml-2"id="like-icon-post-<%= open_category_post.id.to_s %>">
+                                  <% if open_category_post.liked_by(current_user).present? %>
+                                    <%= link_to "いいねを取り消す", post_like_path(open_category_post.id, open_category_post.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
+                                  <% else %>
+                                    <%= link_to "いいね", post_likes_path(open_category_post), method: :POST, remote: true, class: "love hide-text" %>
+                                  <% end %>
+                              </div>
+                              <li class="list-inline-item" style="font-weight: bold;"><div id="like-text-post-<%= open_category_post.id.to_s %>"><%= render "posts/like_text", { likes: open_category_post.likes } %></div></li>
+                            <% else %>
+                              <li class="list-inline-item" style="font-weight: bold;"><i class="far fa-heart ml-2 mr-1"></i><%= open_category_post.likes.count %></li>
+                            <% end %>
+                          <li class="list-inline-item" style="font-weight: bold;"><i class="far fa-comment-alt ml-2 mr-1"></i><%= open_category_post.answers.count %></li>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+              <% end %>
+            <% else %>
+            <P>受付中の質問はありません</p>
+            <% end %>
+            <%= paginate @open_category_posts, param_name: 'open_category_post_page' %>
+          </div>
+          <div class="tab-pane fade" id="close" role="tabpanel" aria-labelledby="close-tab">
+            <% if @close_category_posts.present? %>
+              <% @close_category_posts.each do |close_category_post| %>
+              <%= link_to post_path(close_category_post),data: {"turbolinks" => false}, class: "text-inherit" do %>
+                <div class="card mb-5">
+                  <div class="card-body">
+                    <div class="d-flex align-items-center">
+                      <div class="d-flex align-items-center justify-content-between flex-column">
+                        <% if close_category_post.user.profile_image.present? %>
+                          <%= image_tag close_category_post.user.profile_image.url, class: "avatar-lg rounded-circle border-width-4 border-white" %>
+                          <%= close_category_post.user.name %>
+                        <% else %>
+                          <%= image_tag "profile_default_img_128.png", class: "avatar-lg rounded-circle border-width-4 border-white" %>
+                          <%= close_category_post.user.name %>
+                        <% end %>
+                      </div>
+                      <div class="ml-3 d-flex flex-column">
+                        <% if close_category_post.post_image.present? %>
+                        <h4 class="mb-1" style="font-weight: bold;"><%= close_category_post.title.truncate(30) %><i class="far fa-image font-size-lg"></i></h4>
+                        <% else %>
+                        <h4 class="mb-1" style="font-weight: bold;"><%= close_category_post.title.truncate(30) %>
+                        <% end %>
+                        <p><%= close_category_post.content.truncate(50) %></p>
+                        <div class="d-flex flex-row">
+                          <li class="list-inline-item"><i class="fa fa-tags mr-1"></i><%= "#{close_category_post.category.root.name}/#{close_category_post.category.name}" %></li>
+                          <% if user_signed_in? %>
+                            <div class="ml-2" id="like-icon-post-<%= close_category_post.id.to_s %>">
+                                <% if close_category_post.liked_by(current_user).present? %>
+                                  <%= link_to "いいねを取り消す", post_like_path(close_category_post.id, close_category_post.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
+                                <% else %>
+                                  <%= link_to "いいね", post_likes_path(close_category_post), method: :POST, remote: true, class: "love hide-text" %>
+                                <% end %>
+                            </div>
+                            <li class="list-inline-item" style="font-weight: bold;"><div id="like-text-post-<%= close_category_post.id.to_s %>"><%= render "posts/like_text", { likes: close_category_post.likes } %></div></li>
+                          <% else %>
+                            <li class="list-inline-item" style="font-weight: bold;"><i class="far fa-heart ml-2 mr-1"></i><%= close_category_post.likes.count %></li>
+                          <% end %>
+                          <li class="list-inline-item" style="font-weight: bold;"><i class="far fa-comment-alt ml-2 mr-1"></i><%= close_category_post.answers.count %></li>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+              <% end %>
+            <% else %>
+            <P>回答済の質問はありません</p>
+            <% end %>
+            <%= paginate @close_category_posts, param_name: 'close_category_post_page' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

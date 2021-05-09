@@ -4,17 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon icon-->
-    <link rel="shortcut icon" type="image/x-icon" href="/geeks-1.0.1/dist/assets/images/favicon/favicon.ico">
+    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
     <!-- Libs CSS -->
     <%= render 'layouts/libs_css' %>
     <!-- Theme CSS -->
     <%= render 'layouts/theme_css' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <title>QAApp</title>
+    <title>Keiken</title>
   </head>
-
   <body>
     <%= render 'layouts/header' %>
     <% if flash[:notice] %>
@@ -34,5 +32,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
     <!-- Theme JS -->
     <script src="/geeks-1.0.1/dist/assets/js/theme.min.js"></script>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

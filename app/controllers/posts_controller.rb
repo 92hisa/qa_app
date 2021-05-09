@@ -4,8 +4,8 @@ class PostsController < ApplicationController
   before_action :set_categories, only: [:edit, :new]
 
   def index
-    @post_open = Post.where(status: 0).order(created_at: 'desc')
-    @post_close = Post.where(status: 1).order(created_at: 'desc')
+    @post_open = Post.where(status: 0).order(created_at: 'desc').page(params[:post_open_page]).per(1)
+    @post_close = Post.where(status: 1).order(created_at: 'desc').page(params[:post_close_page]).per(1)
     @search_word = Post.ransack(params[:q])
   end
 
@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @answers = @post.answers.page(params[:page]).per(1)
+    @answers = @post.answers.page(params[:page]).per(2)
   end
 
   def edit

@@ -17,7 +17,11 @@
             <div class="d-flex align-items-center">
               <h3 class="mb-0 font-weight-bold mr-2"><%= @user.name %></h3>
             </div>
-
+            <% if @user.gender == "man" %>
+              <li class="list-unstyled mb-2"><i class="fa fa-user nav-icon mr-2"></i>男性</li>
+            <% else %>
+              <li class="list-unstyled mb-2"><i class="fa fa-user nav-icon mr-2"></i>女性</li>
+            <% end %>
           </div>
         </div>
       </div>

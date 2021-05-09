@@ -9,10 +9,11 @@ class AnswersController < ApplicationController
     @post = Post.find(params[:post_id])
     @answer = Answer.new(answer_params)
     if @answer.save!
-      flash[:notice] = "コメントしました"
+      @post.create_notification_answer!(current_user, @answer.id)
+      flash[:notice] = "回答しました"
       redirect_to post_path(id: @post.id)
     else
-      flash[:alert] = "コメントできませんでした"
+      flash[:alert] = "回答できませんでした"
       redirect_to post_path(id: @post.id)
     end
   end
