@@ -10,7 +10,7 @@
         <div class="card border-0 mb-4">
           <div class="card-header" style=" background-color: #C9FCC9;">
             <h4 class="mb-0">
-              <%= @parent_1.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_1.id).count})"%></span>
+              <%= @parent_1.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_1.children).count})"%></span>
             </h4>
           </div>
           <div class="row">
@@ -18,6 +18,7 @@
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-3 p-lg-3 mt-1 mb-2 mb-lg-0">
                 <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
             <% end %>
@@ -26,7 +27,7 @@
         <div class="card border-0 mb-4">
           <div class="card-header" style=" background-color: #C9FCC9;">
             <h4 class="mb-0">
-              <%= @parent_2.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_2.id).count})"%></span>
+              <%= @parent_2.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_2.children).count})"%></span>
             </h4>
           </div>
           <div class="row">
@@ -34,6 +35,7 @@
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mt-1 mb-2 mb-lg-0">
                 <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
             <% end %>
@@ -42,7 +44,7 @@
         <div class="card border-0 mb-4">
           <div class="card-header" style=" background-color: #C9FCC9;">
             <h4 class="mb-0">
-              <%= @parent_3.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_3.id).count})"%></span>
+              <%= @parent_3.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_3.children).count})"%></span>
             </h4>
           </div>
           <div class="row">
@@ -50,6 +52,7 @@
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mt-1 mb-2 mb-lg-0">
                 <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
             <% end %>
@@ -58,7 +61,7 @@
         <div class="card border-0 mb-4">
           <div class="card-header" style=" background-color: #C9FCC9;">
             <h4 class="mb-0">
-              <%= @parent_4.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_4.id).count})"%></span>
+              <%= @parent_4.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_4.children).count})"%></span>
             </h4>
           </div>
           <div class="row">
@@ -66,6 +69,7 @@
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
                 <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
             <% end %>
