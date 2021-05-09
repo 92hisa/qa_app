@@ -9,7 +9,6 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       post:
-      category:
       answer:
       comment:
     attributes:
@@ -17,8 +16,7 @@ ja:
         title: タイトル
         content: 質問
         answer:
-      category:
-        name: カテゴリー名
+        category: カテゴリ
       answer:
         episode: エピソード
         content: 回答

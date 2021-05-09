@@ -1,0 +1,11 @@
+<% if model.errors.any? %>
+  <div class="alert">
+    <ul class="mb-0 pl-2">
+      <% model.errors.full_messages.each do |message| %>
+      <div class="d-flex flex-column">
+      <li class="list-inline-item"><i class="far fa-check-circle mr-1 mb-2"></i><%= message %></li>
+      </div>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

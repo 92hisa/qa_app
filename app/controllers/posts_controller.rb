@@ -15,12 +15,12 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.save!
+    if @post.save
       flash[:notice] = "投稿が保存されました"
       redirect_to root_path
     else
-      render 'new'
       flash[:alert] = "投稿に失敗しました"
+      render 'new'
     end
   end
 
