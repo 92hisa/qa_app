@@ -7,6 +7,13 @@ class Post < ApplicationRecord
 
   enum status: { open: 0, close: 1 }
   mount_uploader :post_image, ImageUploader
+  validates :title, presence: true, length: { minimum: 5 }
+  validates :title, presence: true, length: { maximum: 100 }
+  validates :category_id, presence: true
+  validates :status, presence: true
+  validates :user_id, presence: true
+  validates :content, presence: true, length: { minimum: 5 }
+  validates :content, presence: true, length: { maximum: 1000 }
 
   def liked_by(user)
     # user_idとpost_idが一致するlikeを検索する
