@@ -52,7 +52,7 @@ class Post < ApplicationRecord
     # コメントは複数回することが考えられるため、１つの投稿に複数回通知する
     notification = current_user.active_notifications.new(
       post_id: id,
-      comment_id: answer_id,
+      answer_id: answer_id,
       visited_id: visited_id,
       action: 'answer'
     )
