@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :correct_post_user, only: [:edit, :update, :destroy]
-  before_action :set_categories, only: [:edit, :new]
+  before_action :set_categories, only: [:edit, :new, :create, :update]
 
   def index
     @post_open = Post.where(status: 0).order(created_at: 'desc').page(params[:post_open_page]).per(1)
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if @post.update!(post_params)
+    if @post.update(post_params)
       flash[:notice] = "編集が完了しました"
       redirect_to post_list_user_path(id: current_user.id)
     else

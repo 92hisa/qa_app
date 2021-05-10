@@ -279,3 +279,11 @@ a {
   border:2px solid #990000;
   padding:12px; font-weight:850;
 }
+
+.alert-message {
+  color:#262626;
+  background:#d4f1fe;
+  text-align: left;
+  border:2px solid #55C9FA;
+  padding:12px; font-weight:850;
+}

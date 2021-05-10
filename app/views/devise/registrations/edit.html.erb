@@ -37,6 +37,7 @@
 					</div>
 					<!-- Card body -->
           <%= form_with scope: resource, as: resource_name, url: registration_path(resource_name), local: true, method: :patch do |f| %>
+					<%= render 'layouts/error_messages', model: f.object %>
 					<div class="card-body">
 						<div class="d-lg-flex align-items-center justify-content-between">
 							<div class="d-flex align-items-center mb-4 mb-lg-0">

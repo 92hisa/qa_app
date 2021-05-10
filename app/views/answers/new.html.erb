@@ -4,6 +4,7 @@
       <div class="col-lg-9 col-md-9 col-12">
       <%= render 'post_info' %>
         <%= form_with(model: [@post, Answer], local: true) do |f| %>
+				<%= render 'layouts/error_messages', model: f.object %>
         <div class="card">
           <div class="card-body">
             <form class="form-row">

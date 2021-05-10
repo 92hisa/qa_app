@@ -1,5 +1,5 @@
 <!-- Page content -->
-<div class="container d-flex flex-column">
+<div class="container d-flex flex-column mt-10">
   <div class="row align-items-center justify-content-center no-gutters min-vh-100">
     <div class="col-lg-5 col-md-8 py-8 py-xl-0">
       <!-- Card -->
@@ -7,7 +7,7 @@
         <!-- Card body -->
         <div class="card-body p-6">
           <%= form_with scope: resource, as: resource_name, url: registration_path(resource_name), local: true do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
+          <%= render 'layouts/error_messages', model: f.object %>
           <div class="mb-4">
             <h1 class="mb-1 font-weight-bold text-center" style="color: #00DB83;">新規登録</h1>
           </div>
