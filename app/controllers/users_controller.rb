@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :correct_user, except: [:show]
 
   def show
-    @user = User.find_by(id: params[:id])
+    @user = User.find(params[:id])
     @user_open_posts = @user.posts.where(status: 0).order(created_at: 'desc')
   end
 
