@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   enum gender: { man: 0, woman: 1 }
   validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
+  validates :encrypted_password,:password,:password_confirmation,length:{minimum:7},format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/}
   validates :password, confirmation: true
   validates :password_confirmation, presence: true
   validates :birth_date, presence: true

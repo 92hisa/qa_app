@@ -65,10 +65,10 @@ RSpec.describe User, type: :model do
         expect(user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
       end
 
-      it "パスワードが6文字未満の場合は登録ができない" do
-        user = build(:user, password: "a" * 5)
+      it "パスワードが7文字未満の場合は登録ができない" do
+        user = build(:user, password: "a" * 6)
         user.valid?
-        expect(user.errors.full_messages).to include("パスワードは6文字以上で入力してください")
+        expect(user.errors.full_messages).to include("パスワードは7文字以上で入力してください")
       end
 
       it "生年月日がなければ登録ができない" do

@@ -41,12 +41,12 @@
             </div>
               <!-- Password -->
             <div class="form-group">
-            <span class="badge badge-light-danger text-danger mr-2">必須</span><%= f.label "パスワード", class: "form-label"%>
-              <%= f.password_field :password, autocomplete: "password", class: "form-control", placeholder: "6文字以上" %>
+            <span class="badge badge-light-danger text-danger mr-2">必須</span><%= f.label "パスワード（半角英字および数字を含む７文字以上）", class: "form-label"%>
+              <%= f.password_field :password, autocomplete: "password", class: "form-control", placeholder: "半角英字および数字を含む７文字以上" %>
             </div>
             <div class="form-group">
             <span class="badge badge-light-danger text-danger mr-2">必須</span><%= f.label "パスワードの確認", class: "form-label"%>
-              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "パスワードの確認", class: "form-control" %>
+              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "上記で入力したパスワードを再入力してください", class: "form-control" %>
             </div>
               <!-- Checkbox -->
             <div class="form-group text-center">
