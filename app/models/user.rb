@@ -10,12 +10,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum gender: { man: 0, woman: 1 }
-  validates :name, presence: true, length: { maximum: 50 }
+  validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
+  validates :encrypted_password,:password,:password_confirmation,length:{minimum:7},format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/}
+  validates :password, confirmation: true
+  validates :password_confirmation, presence: true
+  validates :birth_date, presence: true
+  validates :gender, presence: true
 
   mount_uploader :profile_image, ImageUploader
 
   def update_without_current_password(params, *options)
-
     if params[:password].blank? && params[:password_confirmation].blank?
       params.delete(:password)
       params.delete(:password_confirmation)
@@ -31,7 +35,7 @@ class User < ApplicationRecord
     Post.where(user_id: id).each do |p|
       post_ids << p.id
     end
-    likes = Like.where(post_id: post_ids).count
+    Like.where(post_id: post_ids).count
   end
 
   def answers_count
@@ -39,6 +43,6 @@ class User < ApplicationRecord
     Post.where(user_id: id).each do |p|
       post_ids << p.id
     end
-    answers = Answer.where(post_id: post_ids).count
+    Answer.where(post_id: post_ids).count
   end
 end

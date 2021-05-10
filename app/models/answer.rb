@@ -3,6 +3,12 @@ class Answer < ApplicationRecord
   belongs_to :post
   has_many :comments
   has_many :notifications, dependent: :destroy
+  validates :user_id, presence: true
+  validates :post_id, presence: true
+  validates :episode, presence: true, length: { minimum: 10 }
+  validates :episode, presence: true, length: { maximum: 1000 }
+  validates :content, presence: true, length: { minimum: 10 }
+  validates :content, presence: true, length: { maximum: 1000 }
 
 
   def create_notification_comment!(current_user, comment_id)

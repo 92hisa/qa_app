@@ -1,5 +1,5 @@
 <!-- Page content -->
-<div class="container d-flex flex-column">
+<div class="container d-flex flex-column mt-10">
   <div class="row align-items-center justify-content-center no-gutters min-vh-100">
     <div class="col-lg-5 col-md-8 py-8 py-xl-0">
       <!-- Card -->
@@ -7,7 +7,7 @@
         <!-- Card body -->
         <div class="card-body p-6">
           <%= form_with scope: resource, as: resource_name, url: registration_path(resource_name), local: true do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
+          <%= render 'layouts/error_messages', model: f.object %>
           <div class="mb-4">
             <h1 class="mb-1 font-weight-bold text-center" style="color: #00DB83;">新規登録</h1>
           </div>
@@ -41,12 +41,12 @@
             </div>
               <!-- Password -->
             <div class="form-group">
-            <span class="badge badge-light-danger text-danger mr-2">必須</span><%= f.label "パスワード", class: "form-label"%>
-              <%= f.password_field :password, autocomplete: "password", class: "form-control", placeholder: "6文字以上" %>
+            <span class="badge badge-light-danger text-danger mr-2">必須</span><%= f.label "パスワード（半角英字および数字を含む７文字以上）", class: "form-label"%>
+              <%= f.password_field :password, autocomplete: "password", class: "form-control", placeholder: "半角英字および数字を含む７文字以上" %>
             </div>
             <div class="form-group">
             <span class="badge badge-light-danger text-danger mr-2">必須</span><%= f.label "パスワードの確認", class: "form-label"%>
-              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "パスワードの確認", class: "form-control" %>
+              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "上記で入力したパスワードを再入力してください", class: "form-control" %>
             </div>
               <!-- Checkbox -->
             <div class="form-group text-center">

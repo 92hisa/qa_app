@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :correct_post_user, only: [:edit, :update, :destroy]
-  before_action :set_categories, only: [:edit, :new]
+  before_action :set_categories, only: [:edit, :new, :create, :update]
 
   def index
     @post_open = Post.where(status: 0).order(created_at: 'desc').page(params[:post_open_page]).per(1)
@@ -15,12 +15,12 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.save!
+    if @post.save
       flash[:notice] = "投稿が保存されました"
       redirect_to root_path
     else
-      render 'new'
       flash[:alert] = "投稿に失敗しました"
+      render 'new'
     end
   end
 
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if @post.update!(post_params)
+    if @post.update(post_params)
       flash[:notice] = "編集が完了しました"
       redirect_to post_list_user_path(id: current_user.id)
     else
@@ -61,7 +61,7 @@ class PostsController < ApplicationController
   def correct_post_user
     post = Post.find_by(id: params[:id])
     if post.user.id != current_user.id
-       redirect_to root_path
+      redirect_to root_path
     end
   end
 
