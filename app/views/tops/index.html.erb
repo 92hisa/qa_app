@@ -43,7 +43,7 @@
               <% if recent_post.post_image.present? %>
               <h4 class="mb-1" style="font-weight: bold;"><%= recent_post.title.truncate(30) %><i class="far fa-image font-size-lg"></i></h4>
               <% else %>
-              <h4 class="mb-1" style="font-weight: bold;"><%= recent_post.title.truncate(30) %>
+              <h4 class="mb-1" style="font-weight: bold;"><%= recent_post.title.truncate(30) %></h4>
               <% end %>
               <p><%= recent_post.content.truncate(50) %></p>
               <div class="d-flex flex-row">
