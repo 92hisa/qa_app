@@ -60,7 +60,9 @@
           <div class="card-body">
             <div class="mb-2 d-flex justify-content-between pb-2 mb-4 align-items-center" style="border-bottom: 2px solid #eae7f5">
               <h2>回答<%="(#{@post.answers.count})"%><h2>
-              <%= link_to "経験者として回答する", new_post_answer_path(@post.id), class: "btn btn-success"%>
+              <% if @post.status == 0 %>
+                <%= link_to "経験者として回答する", new_post_answer_path(@post.id), class: "btn btn-success"%>
+              <% end %>
             </div>
             <% if @answers.present? %>
             <% @answers.each do |answer| %>
@@ -114,6 +116,7 @@
                 </div>
                 <% end %>
               </div>
+              <% if @post.status == 0 %>
               <div class="card-body">
                 <%= form_with(model: [answer.post, answer, Comment.new], local: true) do |f| %>
                 <%= render 'layouts/error_messages', model: f.object %>
@@ -130,6 +133,7 @@
                 </div>
                 <% end %>
               </div>
+              <% end %>
             </div>
             <% end %>
             <% else %>
