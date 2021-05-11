@@ -8,10 +8,10 @@ class CommentsController < ApplicationController
       notification = Notification.where(comment_id: @comment.id, visitor_id: current_user.id, answer_id: @answer.id)
       CommentMailer.send_comment_notification_mail(notification).deliver
       flash[:notice] = "コメントしました"
-      redirect_to root_path
+      redirect_to post_path(@post)
     else
       flash[:alert] = "コメントできませんでした"
-      redirect_to post_path(@post)
+      render 'new'
     end
   end
 
