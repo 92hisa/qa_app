@@ -1,16 +1,37 @@
-<h2>Resend confirmation instructions</h2>
-
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+<!-- Page content -->
+<div class="container d-flex flex-column">
+  <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+    <div class="col-lg-5 col-md-8 py-8 py-xl-0">
+      <!-- Card -->
+      <div class="card shadow ">
+        <!-- Card body -->
+        <div class="card-body p-6">
+        <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>
+          <div class="mb-4">
+            <h1 class="mb-1 font-weight-bold text-center mt-2" style="color: #00DB83;">認証メールの再送</h1>
+          </div>
+          <!-- Form -->
+          <form>
+              <!-- メールアドレス -->
+            <div class="form-group">
+              <%= f.label " 本会員登録のご案内を再送いたします", class: "form-label"%>
+              <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+            </div>
+            <div>
+              <!-- Button -->
+              <%= f.submit "送信する", class: "btn btn-success btn-block", style: "font-weight: bold;" %>
+            </div>
+            <div class="mt-3 text-center">
+              <span>アカウントをお持ちの方はこちら「<%= link_to "ログイン", new_user_session_path,data: {"turbolinks" => false}, style: "color: #00DB83;"%> 」</span>
+            </div>
+            <div class="mt-3 text-center">
+              <span><%= link_to "会員登録の手続きをはじめから行う場合はこちら", new_user_registration_path,data: {"turbolinks" => false}, class: "text-muted"%></span>
+            </div>
+          </form>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
