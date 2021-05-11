@@ -53,8 +53,8 @@
           <div class="dropdown-divider"></div>
           <ul class="list-unstyled">
             <li>
-              <%= link_to user_path(id: current_user),data: {"turbolinks" => false}, class: "dropdown-item" do %>
-              <i class="fe fe-user mr-2"></i>プロフィール
+              <%= link_to mypage_user_path(id: current_user),data: {"turbolinks" => false}, class: "dropdown-item" do %>
+              <i class="fe fe-user mr-2"></i>マイページ
               <% end %>
             </li>
             <li>
@@ -158,8 +158,8 @@
               <div class="dropdown-divider"></div>
               <ul class="list-unstyled">
                 <li class="dropdown-submenu dropleft-lg">
-                  <%= link_to user_path(id: current_user),data: {"turbolinks" => false}, class: "dropdown-item" do %>
-                  <i class="fe fe-user mr-2"></i>プロフィール
+                  <%= link_to mypage_user_path(id: current_user),data: {"turbolinks" => false}, class: "dropdown-item" do %>
+                  <i class="fe fe-user mr-2"></i>マイページ
                   <% end %>
                 </li>
                 <li>
