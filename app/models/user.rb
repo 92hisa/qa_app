@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
 
   enum gender: { man: 0, woman: 1 }
   validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
