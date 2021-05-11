@@ -53,8 +53,8 @@
           <div class="dropdown-divider"></div>
           <ul class="list-unstyled">
             <li>
-              <%= link_to user_path(id: current_user),data: {"turbolinks" => false}, class: "dropdown-item" do %>
-              <i class="fe fe-user mr-2"></i>プロフィール
+              <%= link_to mypage_user_path(id: current_user),data: {"turbolinks" => false}, class: "dropdown-item" do %>
+              <i class="fe fe-user mr-2"></i>マイページ
               <% end %>
             </li>
             <li>
@@ -158,8 +158,8 @@
               <div class="dropdown-divider"></div>
               <ul class="list-unstyled">
                 <li class="dropdown-submenu dropleft-lg">
-                  <%= link_to user_path(id: current_user),data: {"turbolinks" => false}, class: "dropdown-item" do %>
-                  <i class="fe fe-user mr-2"></i>プロフィール
+                  <%= link_to mypage_user_path(id: current_user),data: {"turbolinks" => false}, class: "dropdown-item" do %>
+                  <i class="fe fe-user mr-2"></i>マイページ
                   <% end %>
                 </li>
                 <li>
@@ -177,23 +177,15 @@
                     <i class="far fa-hand-paper mr-2"></i>質問する
                   <% end %>
                 </li>
-                <li class="dropdown p-1">
-                  <a class="nav-item text-inherit" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   <i class="fe fe-settings nav-icon pl-3 pr-2"></i>設定
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="dropdownUser">
-                  <ul class="list-unstyled">
-                  <li class="nav-item">
-                    <%= link_to edit_user_registration_path(current_user),data: {"turbolinks" => false}, class: "dropdown-item" do %>
-                      <i class="fas fa-user-edit nav-icon mr-2"></i>プロフィール編集
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to post_list_user_path(current_user),data: {"turbolinks" => false}, class: "dropdown-item" do %>
-                      <i class="far fa-edit nav-icon mr-2"></i>あなたの投稿
-                    <% end %>
-                  </li>
-                  </ul>
+                <li class="nav-item">
+                  <%= link_to edit_user_registration_path(current_user),data: {"turbolinks" => false}, class: "dropdown-item" do %>
+                    <i class="fas fa-user-edit nav-icon mr-2"></i>プロフィール編集
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to post_list_user_path(current_user),data: {"turbolinks" => false}, class: "dropdown-item" do %>
+                    <i class="far fa-edit nav-icon mr-2"></i>あなたの投稿
+                  <% end %>
                 </li>
               </ul>
               <div class="dropdown-divider"></div>
