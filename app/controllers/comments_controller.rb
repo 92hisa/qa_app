@@ -5,6 +5,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     if @comment.save
       @answer.create_notification_comment!(current_user, @comment.id)
+      notification = Notification.where(comment_id: @comment.id, visitor_id: current_user.id, answer_id: @answer.id)
+      CommentMailer.send_comment_notification_mail(notification).deliver
       flash[:notice] = "コメントしました"
       redirect_to root_path
     else
