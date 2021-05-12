@@ -3,4 +3,4 @@
 User-Agent:*
 Disallow:
 
-Sitemap:http://keiken.info/sitemap.xml
+Sitemap:https://www.keiken.info/sitemap.xml
