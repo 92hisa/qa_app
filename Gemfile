@@ -73,3 +73,4 @@ gem 'dotenv-rails'
 gem 'meta-tags'
 gem 'sitemap_generator'
 gem 'whenever', require: false
+gem 'aws-sdk'
