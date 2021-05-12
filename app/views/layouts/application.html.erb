@@ -11,9 +11,11 @@
     <%= render 'layouts/theme_css' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= render 'layouts/gtm_head' %>
     <title>Keiken</title>
   </head>
   <body>
+    <%= render 'layouts/gtm_noscript' %>
     <%= render 'layouts/header' %>
     <% if flash[:notice] %>
       <div class="alert-message alert-info">
