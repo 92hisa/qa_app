@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get :dynamic_select_category, to: 'posts#dynamic_select_category'
   get '/search', to: 'posts#search', as: :search
   get '/search_header', to: 'posts#search_header', as: :search_header
+  get '/kiyaku', to: 'operations#kiyaku', as: :kiyaku
+  get '/privacy', to: 'operations#privacy', as: :privacy
 
   resources :users, only: [:show, :update] do
     get :post_list, on: :member
