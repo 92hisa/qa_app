@@ -16,8 +16,8 @@
           <form>
               <!-- メールアドレス -->
             <div class="form-group">
-              <%= f.label "メールアドレス", class: "form-label"%>
-              <%= f.email_field :email, autofocus: true, placeholder: "info@roughview.com", class: "form-control" %>
+              <%= f.label "ユーザーID（メールアドレス）", class: "form-label"%>
+              <%= f.email_field :email, autofocus: true, placeholder: "example@keiken.info", class: "form-control" %>
             </div>
               <!-- Password -->
             <div class="form-group">
@@ -37,7 +37,7 @@
               <!-- Button -->
               <%= f.submit "ログイン", class: "btn btn-success btn-block" %>
             </div>
-            <div class="mt-3">
+            <div class="mt-3 text-center">
               <span>アカウントをお持ちでない方はこちら「<%= link_to "無料登録", new_user_registration_path,data: {"turbolinks" => false}, style: "color: #00DB83;"%> 」</span>
             </div>
             <div class="mt-3 text-center">
