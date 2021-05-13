@@ -18,6 +18,14 @@ class UsersController < ApplicationController
     @post_close = current_user.posts.where(status: 1).order(created_at: 'desc').order(created_at: 'desc').page(params[:post_close_page]).per(10)
   end
 
+  def withdrawal
+    @user = User.find(params[:id])
+    @user.update!(is_deleted: true)
+    reset_session
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
+  end
+
   def correct_user
     user = User.find(params[:id])
     if user.id != current_user.id

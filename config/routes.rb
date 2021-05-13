@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/search_header', to: 'posts#search_header', as: :search_header
   get '/kiyaku', to: 'operations#kiyaku', as: :kiyaku
   get '/privacy', to: 'operations#privacy', as: :privacy
+  put "/users/:id/withdrawal" => "users#withdrawal", as: 'withdrawal'
 
   resources :users, only: [:show, :update] do
     get :post_list, on: :member
