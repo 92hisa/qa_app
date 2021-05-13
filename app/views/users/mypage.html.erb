@@ -181,6 +181,11 @@
         </div>
       </div>
     </div>
+    <div class="text-right">
+      <% if user_signed_in? && @user.id == current_user.id %>
+        <%= link_to "退会はこちら", withdrawal_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？登録されているユーザー名およびメールアドレスでは再入会できなくなります。", class: "text-muted" %>
+      <% end %>
+    </div>
   </div>
 </div>
 <% end %>

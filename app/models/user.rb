@@ -32,6 +32,10 @@ class User < ApplicationRecord
     result
   end
 
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
+
   def likes_count
     post_ids = []
     Post.where(user_id: id).each do |p|
