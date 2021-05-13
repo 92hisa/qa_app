@@ -10,10 +10,6 @@ RSpec.describe Comment, type: :model do
       it "有効な情報であればコメントできること" do
         expect(comment).to be_valid
       end
-
-      it "有効な情報であればコメントに登録きること" do
-        expect(comment).to be_valid
-      end
     end
 
     context "コメントが失敗する場合" do

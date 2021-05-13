@@ -5,6 +5,6 @@ FactoryBot.define do
     password { "password1" }
     password_confirmation { "password1" }
     gender { "man" }
-    birth_date { 2000-01-01 }
+    birth_date { 2000 - 0o1 - 0o1 }
   end
 end

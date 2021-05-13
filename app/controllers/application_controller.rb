@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :ensure_domain
-  FQDN = 'www.keiken.info'
+  FQDN = 'www.keiken.info'.freeze
 
   def ensure_domain
     return unless /\.herokuapp.com/ =~ request.host

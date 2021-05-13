@@ -13,7 +13,9 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
   validates :birth_date, presence: true
   validates :gender, presence: true
-  validates :encrypted_password,:password,:password_confirmation,length:{minimum:7},format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/}, unless: -> { validation_context == :update }
+  validates :encrypted_password, :password, :password_confirmation, length: { minimum: 7 },
+                                                                    format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/ },
+                                                                    unless: -> { validation_context == :update }
   validates :password, confirmation: true, unless: -> { validation_context == :update }
   validates :password_confirmation, presence: true, unless: -> { validation_context == :update }
 
