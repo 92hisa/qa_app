@@ -5,7 +5,7 @@ class Answer < ApplicationRecord
   has_many :notifications, dependent: :destroy
   validates :user_id, presence: true
   validates :post_id, presence: true
-  validates :episode, presence: true, length: { minimum: 10 }
+  validates :episode, presence: true, length: { minimum: 5 }
   validates :episode, presence: true, length: { maximum: 1000 }
   validates :content, presence: true, length: { minimum: 10 }
   validates :content, presence: true, length: { maximum: 1000 }

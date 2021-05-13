@@ -17,7 +17,7 @@ class AnswersController < ApplicationController
       redirect_to post_path(id: @post.id)
     else
       flash[:alert] = "回答できませんでした"
-      redirect_to post_path(id: @post.id)
+      render 'new'
     end
   end
 
