@@ -5,11 +5,11 @@
         <%= render partial: 'search', locals: { search_word: @search_word } %>
       </div>
       <div class="col-xl-9 col-lg-9 col-md-12 col-12 mb-5 mt-4">
-        <div class="border-bottom pb-2 mb-4 d-lg-flex justify-content-between align-items-center">
+        <div class="d-flex border-bottom pb-2 mb-4 d-lg-flex justify-content-between align-items-center">
           <div>
             <h1 class="mb-0 h2">Q&A一覧</h1>
           </div>
-          <div>
+          <div class="mr-0"style="margin: auto;">
             <%= link_to "カテゴリからさがす", categories_path,data: {"turbolinks" => false}, class: "text-inherit" %>
           </div>
         </div>
@@ -28,7 +28,7 @@
             <% if @post_open.present? %>
               <% @post_open.each do |post_open| %>
               <%= link_to post_path(post_open),data: {"turbolinks" => false}, class: "text-inherit" do %>
-                <div class="card mb-5">
+                <div class="card pt-2 mb-5">
                   <div class="card-body p-1 p-sm-3">
                     <div class="d-flex align-items-center">
                       <div class="d-flex align-items-center justify-content-between flex-column">
@@ -44,7 +44,7 @@
                         <% if post_open.post_image.present? %>
                         <h4 class="mb-1" style="font-weight: bold;"><%= post_open.title.truncate(30) %><i class="far fa-image font-size-lg"></i></h4>
                         <% else %>
-                        <h4 class="mb-1" style="font-weight: bold;"><%= post_open.title.truncate(30) %>
+                        <h4 class="mb-1" style="font-weight: bold;"><%= post_open.title.truncate(30) %></h4>
                         <% end %>
                         <p><%= post_open.content.truncate(50) %></p>
                         <div class="d-flex flex-row">

@@ -14,6 +14,8 @@ class UsersController < ApplicationController
 
   def mypage
     @user = current_user
+    @post_open = current_user.posts.where(status: 0).order(created_at: 'desc').page(params[:post_open_page]).per(10)
+    @post_close = current_user.posts.where(status: 1).order(created_at: 'desc').order(created_at: 'desc').page(params[:post_close_page]).per(10)
   end
 
   def correct_user

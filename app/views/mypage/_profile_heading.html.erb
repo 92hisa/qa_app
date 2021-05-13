@@ -17,7 +17,7 @@
             <div class="d-flex align-items-center">
               <h3 class="mb-0 font-weight-bold mr-2"><%= @user.name %></h3>
               <% if @user.id == current_user.id %>
-              <span class="badge badge-light-primary text-primary"><%= "ID: #{@user.id}" %></span>
+              <span class="badge badge-light-success text-success"><%= "ID: #{@user.id}" %></span>
               <% end %>
             </div>
             <% if @user.id == current_user.id %>
