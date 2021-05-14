@@ -7,7 +7,7 @@
             <h1 class="mb-0 h2">カテゴリー</h1>
           </div>
         </div>
-        <div class="card border-0 mb-4">
+        <div class="card border-0 mb-sm-8 mb-4">
           <div class="card-header" style=" background-color: #C9FCC9;">
             <h4 class="mb-0">
               <%= @parent_1.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_1.children).count})"%></span>
@@ -24,7 +24,7 @@
             <% end %>
           </div>
         </div>
-        <div class="card border-0 mb-4">
+        <div class="card border-0 mb-sm-8 mb-4">
           <div class="card-header" style=" background-color: #C9FCC9;">
             <h4 class="mb-0">
               <%= @parent_2.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_2.children).count})"%></span>
@@ -41,7 +41,7 @@
             <% end %>
           </div>
         </div>
-        <div class="card border-0 mb-4">
+        <div class="card border-0 mb-sm-8 mb-4">
           <div class="card-header" style=" background-color: #C9FCC9;">
             <h4 class="mb-0">
               <%= @parent_3.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_3.children).count})"%></span>
@@ -58,7 +58,7 @@
             <% end %>
           </div>
         </div>
-        <div class="card border-0 mb-4">
+        <div class="card border-0 mb-sm-8 mb-4">
           <div class="card-header" style=" background-color: #C9FCC9;">
             <h4 class="mb-0">
               <%= @parent_4.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_4.children).count})"%></span>
@@ -75,6 +75,481 @@
             <% end %>
           </div>
         </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_5.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_5.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_5.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_6.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_6.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_6.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_7.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_7.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_7.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_8.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_8.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_8.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_9.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_9.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_9.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_10.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_10.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_10.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_11.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_11.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_11.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_12.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_12.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_12.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_13.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_13.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_13.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_14.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_14.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_14.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_15.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_15.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_15.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_16.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_16.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_16.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_17.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_17.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_17.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_18.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_18.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_18.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_19.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_19.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_19.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_20.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_20.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_20.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_21.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_21.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_21.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_22.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_22.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_22.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_23.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_23.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_23.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_24.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_24.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_24.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_25.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_25.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_25.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_26.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_26.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_26.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_27.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_27.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_27.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_28.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_28.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_28.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
+        <div class="card border-0 mb-sm-8 mb-4">
+          <div class="card-header" style=" background-color: #C9FCC9;">
+            <h4 class="mb-0">
+              <%= @parent_29.name %><span class="text-muted font-size-xs"><%= "(#{Post.where(category_id: @parent_29.children).count})"%></span>
+            </h4>
+          </div>
+          <div class="row">
+            <% @parent_29.children.each do |children_category| %>
+            <div class="col-md-2 col-3 text-center">
+              <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
+                <%= children_category.name %>
+                <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------------- -->
       </div>
     </div>
   </div>
