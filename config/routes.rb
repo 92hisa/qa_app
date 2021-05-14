@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/privacy', to: 'operations#privacy', as: :privacy
   put "/users/:id/withdrawal" => "users#withdrawal", as: 'withdrawal'
   get '/registration_complete', to: 'operations#registration_complete', as: :registration_complete
+  get '/anounce', to: 'operations#anounce', as: :anounce
 
   resources :users, only: [:show, :update] do
     get :post_list, on: :member

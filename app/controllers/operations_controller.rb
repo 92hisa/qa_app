@@ -7,4 +7,7 @@ class OperationsController < ApplicationController
 
   def registration_complete
   end
+
+  def anounce
+  end
 end
