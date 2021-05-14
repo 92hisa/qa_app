@@ -7,6 +7,7 @@
             <h1 class="mb-0 h2">カテゴリー</h1>
           </div>
         </div>
+        <!-- --------------------------------------------------------------------------- -->
         <div class="card border-0 mb-sm-8 mb-4">
           <div class="card-header" style=" background-color: #C9FCC9;">
             <h4 class="mb-0">
@@ -24,6 +25,8 @@
             <% end %>
           </div>
         </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
         <div class="card border-0 mb-sm-8 mb-4">
           <div class="card-header" style=" background-color: #C9FCC9;">
             <h4 class="mb-0">
@@ -34,13 +37,15 @@
             <% @parent_2.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mt-1 mb-2 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
             <% end %>
           </div>
         </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
         <div class="card border-0 mb-sm-8 mb-4">
           <div class="card-header" style=" background-color: #C9FCC9;">
             <h4 class="mb-0">
@@ -51,13 +56,15 @@
             <% @parent_3.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mt-1 mb-2 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
             <% end %>
           </div>
         </div>
+        <!-- --------------------------------------------------------------------------- -->
+        <!-- --------------------------------------------------------------------------- -->
         <div class="card border-0 mb-sm-8 mb-4">
           <div class="card-header" style=" background-color: #C9FCC9;">
             <h4 class="mb-0">
@@ -68,13 +75,14 @@
             <% @parent_4.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
             <% end %>
           </div>
         </div>
+        <!-- --------------------------------------------------------------------------- -->
         <!-- --------------------------------------------------------------------------- -->
         <div class="card border-0 mb-sm-8 mb-4">
           <div class="card-header" style=" background-color: #C9FCC9;">
@@ -86,7 +94,7 @@
             <% @parent_5.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -105,7 +113,7 @@
             <% @parent_6.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -124,7 +132,7 @@
             <% @parent_7.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -143,7 +151,7 @@
             <% @parent_8.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -162,7 +170,7 @@
             <% @parent_9.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -181,7 +189,7 @@
             <% @parent_10.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -200,7 +208,7 @@
             <% @parent_11.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -219,7 +227,7 @@
             <% @parent_12.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -238,7 +246,7 @@
             <% @parent_13.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -257,7 +265,7 @@
             <% @parent_14.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -276,7 +284,7 @@
             <% @parent_15.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -295,7 +303,7 @@
             <% @parent_16.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -314,7 +322,7 @@
             <% @parent_17.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -333,7 +341,7 @@
             <% @parent_18.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -352,7 +360,7 @@
             <% @parent_19.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -371,7 +379,7 @@
             <% @parent_20.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -390,7 +398,7 @@
             <% @parent_21.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -409,7 +417,7 @@
             <% @parent_22.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -428,7 +436,7 @@
             <% @parent_23.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -447,7 +455,7 @@
             <% @parent_24.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -466,7 +474,7 @@
             <% @parent_25.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -485,7 +493,7 @@
             <% @parent_26.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -504,7 +512,7 @@
             <% @parent_27.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -523,7 +531,7 @@
             <% @parent_28.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
@@ -542,7 +550,7 @@
             <% @parent_29.children.each do |children_category| %>
             <div class="col-md-2 col-3 text-center">
               <div class="p-xl-2 p-lg-2 mb-3 mb-lg-0">
-                <%= children_category.name %>
+                <%= link_to children_category.name, category_path(children_category), class: "text-inherit"  %>
                 <span class="text-muted font-size-xs"><%= "(#{children_category.posts.count})"%></span>
               </div>
             </div>
