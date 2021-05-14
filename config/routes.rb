@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/kiyaku', to: 'operations#kiyaku', as: :kiyaku
   get '/privacy', to: 'operations#privacy', as: :privacy
   put "/users/:id/withdrawal" => "users#withdrawal", as: 'withdrawal'
+  get '/registration_complete', to: 'operations#registration_complete', as: :registration_complete
 
   resources :users, only: [:show, :update] do
     get :post_list, on: :member

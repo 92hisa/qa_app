@@ -8,4 +8,8 @@ class RegistrationsController < Devise::RegistrationsController
   def after_update_path_for(resource)
     mypage_user_path(resource)
   end
+
+  def after_inactive_sign_up_path_for(resource)
+    registration_complete_path
+  end
 end
