@@ -4,8 +4,8 @@ class PostsController < ApplicationController
   before_action :set_categories, only: [:edit, :new, :create, :update]
 
   def index
-    @post_open = Post.where(status: 0).order(created_at: 'desc').page(params[:post_open_page]).per(1)
-    @post_close = Post.where(status: 1).order(created_at: 'desc').page(params[:post_close_page]).per(1)
+    @post_open = Post.where(status: 0).order(created_at: 'desc').page(params[:post_open_page]).per(10)
+    @post_close = Post.where(status: 1).order(created_at: 'desc').page(params[:post_close_page]).per(10)
     @search_word = Post.ransack(params[:q])
   end
 
