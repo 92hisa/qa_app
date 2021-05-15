@@ -26,7 +26,7 @@
                     <%= image_tag "profile_default_img_128.png", class: "rounded-circle avatar-md mr-2" %>
                     <% end %>
                     <h4 class="mr-2 mb-0"><%= @post.user.name %></h4>
-                    <span class="font-size-xs text-muted"><%= time_ago_in_words(@post.created_at) + "前" %></span>
+                    <!-- <span class="font-size-xs text-muted"><%= time_ago_in_words(@post.created_at) + "前" %></span> -->
                   </div>
                   <h4 class="mb-3" style="font-weight: bold;"><%= @post.title %></h4>
                   <p class="mb-3" style="font-weight: bold;"><%= @post.content %></p>
@@ -76,7 +76,7 @@
                         <%= image_tag 'profile_default_img_128', class:"rounded-circle avatar-md mr-2" %>
                       <% end %>
                       <h4 class="mr-2 mb-0"><%= answer.user.name %></h4>
-                      <span class="font-size-xs text-muted"><%= time_ago_in_words(answer.created_at) + "前" %></span>
+                      <!-- <span class="font-size-xs text-muted"><%= time_ago_in_words(answer.created_at) + "前" %></span> -->
                     </div>
                     <div class="pl-0">
                       <h3 class="badge badge-light-danger text-danger" style="width: 90px;">経験エピソード</h3>
@@ -99,7 +99,7 @@
                       <% end %>
                       <div class="d-flex flex-column">
                         <span class="font-size-sm"><%= comment.user.name %></span>
-                        <span class="font-size-xs text-muted"><%= time_ago_in_words(comment.created_at) + "前" %></span>
+                        <!-- <span class="font-size-xs text-muted"><%= time_ago_in_words(comment.created_at) + "前" %></span> -->
                       </div>
                     </div>
                     <div class="col-10 d-flex flex-column m-2">

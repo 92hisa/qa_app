@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many :likes, -> { order(created_at: :desc) }, dependent: :destroy
-  has_many :answers
+  has_many :answers, dependent: :destroy
   has_many :notifications, dependent: :destroy
 
   enum status: { open: 0, close: 1 }

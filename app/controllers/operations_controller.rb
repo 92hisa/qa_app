@@ -4,4 +4,10 @@ class OperationsController < ApplicationController
 
   def privacy
   end
+
+  def registration_complete
+  end
+
+  def anounce
+  end
 end
