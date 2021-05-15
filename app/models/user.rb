@@ -56,7 +56,7 @@ class User < ApplicationRecord
     user = User.find_or_create_by!(email: 'keiken.kanri@gmail.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.password_confirmation= user.password
-      user.birth_date = 1900-01-01
+      user.birth_date = 1950-12-31
       user.confirmed_at = Time.now
       user.name = "ゲスト"
     end
