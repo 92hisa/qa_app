@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users,
              controllers: { registrations: 'registrations' }
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
   root 'tops#index'
   get 'sitemap', to: redirect('https://s3-ap-northeast-1.amazonaws.com/keiken/sitemaps/sitemap.xml.gz')
   get :dynamic_select_category, to: 'posts#dynamic_select_category'
@@ -11,8 +14,6 @@ Rails.application.routes.draw do
   put "/users/:id/withdrawal" => "users#withdrawal", as: 'withdrawal'
   get '/registration_complete', to: 'operations#registration_complete', as: :registration_complete
   get '/anounce', to: 'operations#anounce', as: :anounce
-  get '/question', to: 'operations#question', as: :question
-  post '/guest_sign_in', to: 'operations#guest_sign_in'
 
   resources :users, only: [:show, :update] do
     get :post_list, on: :member

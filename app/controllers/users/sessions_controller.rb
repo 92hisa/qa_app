@@ -1,5 +1,11 @@
-class SessionsController < Devise::RegistrationsController
+class Users::SessionsController < Devise::SessionsController
   before_action :reject_user, only: [:create]
+
+  def guest_sign_in
+    user = User.guest
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
 
   protected
 

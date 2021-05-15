@@ -10,7 +10,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   enum gender: { man: 0, woman: 1 }
-  validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
+  validates :name, presence: true, uniqueness: true, length: { maximum: 20 }
   validates :birth_date, presence: true
   validates :gender, presence: true
   validates :encrypted_password, :password, :password_confirmation, length: { minimum: 7 },
@@ -50,5 +50,15 @@ class User < ApplicationRecord
       post_ids << p.id
     end
     Answer.where(post_id: post_ids).count
+  end
+
+  def self.guest
+    user = User.find_or_create_by!(email: 'keiken.kanri@gmail.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.password_confirmation= user.password
+      user.birth_date = 1900-01-01
+      user.confirmed_at = Time.now
+      user.name = "ゲスト"
+    end
   end
 end
