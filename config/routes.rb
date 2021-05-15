@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   put "/users/:id/withdrawal" => "users#withdrawal", as: 'withdrawal'
   get '/registration_complete', to: 'operations#registration_complete', as: :registration_complete
   get '/anounce', to: 'operations#anounce', as: :anounce
+  get '/question', to: 'operations#question', as: :question
+  post '/guest_sign_in', to: 'operations#guest_sign_in'
 
   resources :users, only: [:show, :update] do
     get :post_list, on: :member
