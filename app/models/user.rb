@@ -44,14 +44,6 @@ class User < ApplicationRecord
     Like.where(post_id: post_ids).count
   end
 
-  def answers_count
-    post_ids = []
-    Post.where(user_id: id).each do |p|
-      post_ids << p.id
-    end
-    Answer.where(post_id: post_ids).count
-  end
-
   def self.guest
     user = User.find_or_create_by!(email: 'keiken.kanri@gmail.com') do |user|
       user.password = SecureRandom.urlsafe_base64
