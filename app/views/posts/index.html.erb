@@ -49,7 +49,7 @@
                         <% end %>
                         </div>
                         <div class="d-flex flex-row">
-                          <li class="list-inline-item"><i class="fa fa-tags mr-1"></i><%= "#{post_open.category.root.name}/#{post_open.category.name}" %></li>
+                          <li class="list-inline-item"><i class="fa fa-tags mr-1"></i><%= "#{post_open.category.root.name.truncate(10)}/#{post_open.category.name.truncate(10)}" %></li>
                           <% if user_signed_in? %>
                             <div class="ml-2" id="like-icon-post-<%= post_open.id.to_s %>">
                               <% if post_open.liked_by(current_user).present? %>
@@ -100,7 +100,7 @@
                         <% end %>
                         </div>
                         <div class="d-flex flex-row">
-                          <li class="list-inline-item"><i class="fa fa-tags mr-1"></i><%= "#{post_close.category.root.name}/#{post_close.category.name}" %></li>
+                          <li class="list-inline-item"><i class="fa fa-tags mr-1"></i><%= "#{post_close.category.root.name.truncate(10)}/#{post_close.category.name.truncate(10)}" %></li>
                           <% if user_signed_in? %>
                             <div class="ml-2" id="like-icon-post-<%= post_close.id.to_s %>">
                               <% if post_close.liked_by(current_user).present? %>
