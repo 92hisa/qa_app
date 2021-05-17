@@ -54,7 +54,7 @@ RSpec.describe User, type: :model do
       end
 
       it "パスワード(確認用)がなければ登録できない" do
-        user.password_confirmation = nil
+        user = build(:user, password_confirmation: "")
         user.valid?
         expect(user.errors.full_messages).to include("パスワード（確認用）を入力してください")
       end

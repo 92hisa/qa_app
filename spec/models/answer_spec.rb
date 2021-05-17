@@ -31,8 +31,8 @@ RSpec.describe Answer, type: :model do
         expect(answer.errors.full_messages).to include("エピソードを入力してください")
       end
 
-      it "episodeが9文字以下の場合は登録できないこと" do
-        answer = build(:answer, episode: "a" * 9)
+      it "episodeが4文字以下の場合は登録できないこと" do
+        answer = build(:answer, episode: "a" * 4)
         answer.valid?
         expect(answer).to be_invalid
       end
