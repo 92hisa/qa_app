@@ -82,6 +82,12 @@ RSpec.describe User, type: :model do
         user.valid?
         expect(user.errors.full_messages).to include("性別を入力してください")
       end
+
+      it "is_deletedが未入力の場合は登録ができない" do
+        user.is_deleted = nil
+        user.valid?
+        expect(user).to be_invalid
+      end
     end
   end
 
