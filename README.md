@@ -19,8 +19,8 @@
   - Postgresql
 
 - 本番環境
-Heroku
-AWS S3（imageファイルおよびsitemapファイルのストレージに使用）
+  - Heroku
+  - AWS S3（imageファイルおよびsitemapファイルのストレージに使用）
 
 ### 【ユーザー機能一覧】
 - ログイン、ログアウト、メール認証機能(devise)
