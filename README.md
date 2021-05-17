@@ -1,24 +1,42 @@
-# README
+### 【アプリケーション名】  
+[Keiken](https://www.keiken.info/) (ver.2)  
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+### 【アプリケーションの概要】
+いま困っていること、悩んでいることを自由に経験者に質問ができるコミュニティサイトです。
+想像や予想での情報ではなく、実際に同様の経験をした人からの回答を得られることで、安心・安全且つ納得感のある情報が収集できると考えています。
 
-* Ruby version
+### 【技術仕様】
 
-* System dependencies
+- フロントエンド
+  - HTML, CSS
+  - JavaScript, Ajax
+  - Bootstrap4
 
-* Configuration
+- バックエンド
+  - Ruby 2.7.2
+  - Ruby on Rails 6.0.3.4
+  - Postgresql
 
-* Database creation
+- 本番環境
+Heroku
+AWS S3（imageファイルおよびsitemapファイルのストレージに使用）
 
-* Database initialization
+### 【ユーザー機能一覧】
+- ログイン、ログアウト、メール認証機能(devise)
+- ゲストログイン機能（会員登録なしで質問、回答、コメントが可能）
+- ユーザーによる質問
+- 質問に対する、いいね！
+- 質問に対する回答
+- 回答に対するコメント
+- Ajaxによる非同期処理（いいね！/いいね！解除の切り替え表示、親カテゴリーと子カテゴリーの連動した表示）
+- 質問に対する、回答、コメント、いいね！があった際の通知機能（mailerによるメール通知およびアプリ画面上での通知）
+- カテゴリー選択
+- アプリ内検索
+- ページネーション
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 【マーケティングツール】
+- Google tag managerの導入
+- Google Analyticsの導入
+- meta tagの設置
+- Google広告（検索連動型広告）のタグ設置

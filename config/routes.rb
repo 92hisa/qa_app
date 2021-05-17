@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users,
              controllers: { registrations: 'registrations' }
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
   root 'tops#index'
   get 'sitemap', to: redirect('https://s3-ap-northeast-1.amazonaws.com/keiken/sitemaps/sitemap.xml.gz')
   get :dynamic_select_category, to: 'posts#dynamic_select_category'

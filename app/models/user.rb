@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-  has_many :posts
-  has_many :likes
-  has_many :answers
-  has_many :comments
+  has_many :posts, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :answers, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
@@ -10,7 +10,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   enum gender: { man: 0, woman: 1 }
-  validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
+  validates :name, presence: true, uniqueness: true, length: { maximum: 20 }
   validates :birth_date, presence: true
   validates :gender, presence: true
   validates :encrypted_password, :password, :password_confirmation, length: { minimum: 7 },
@@ -44,11 +44,13 @@ class User < ApplicationRecord
     Like.where(post_id: post_ids).count
   end
 
-  def answers_count
-    post_ids = []
-    Post.where(user_id: id).each do |p|
-      post_ids << p.id
+  def self.guest
+    user = User.find_or_create_by!(email: 'keiken.kanri@gmail.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.password_confirmation= user.password
+      user.birth_date = "1950-12-31"
+      user.confirmed_at = Time.now
+      user.name = "ゲスト"
     end
-    Answer.where(post_id: post_ids).count
   end
 end

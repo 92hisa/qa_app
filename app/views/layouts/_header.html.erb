@@ -7,23 +7,26 @@
     <!-- Mobile view nav wrap -->
     <ul class="navbar-nav navbar-right-wrap ml-auto d-lg-none d-flex nav-top-wrap ">
       <% if user_signed_in?%>
-        <li class="d-inline-block stopevent">
-          <% if unchecked_notifications.any? %>
-            <%= link_to notifications_path,data: {"turbolinks" => false} do %>
-              <div class="btn btn-light btn-icon rounded-circle text-muted indicator indicator-primary">
-                <i class="fe fe-bell"></i>
-              </div>
+        <% unless current_user.name == "ゲスト" && current_user.email == "keiken.kanri@gmail.com" %>
+          <li class="d-inline-block stopevent">
+            <% if unchecked_notifications.any? %>
+              <%= link_to notifications_path,data: {"turbolinks" => false} do %>
+                <div class="btn btn-light btn-icon rounded-circle text-muted indicator indicator-primary">
+                  <i class="fe fe-bell"></i>
+                </div>
+              <% end %>
+            <% else %>
+              <%= link_to notifications_path,data: {"turbolinks" => false} do  %>
+                <div class="btn btn-light btn-icon rounded-circle text-muted">
+                  <i class="fe fe-bell"></i>
+                </div>
+              <% end %>
             <% end %>
-          <% else %>
-            <%= link_to notifications_path,data: {"turbolinks" => false} do  %>
-              <div class="btn btn-light btn-icon rounded-circle text-muted">
-                <i class="fe fe-bell"></i>
-              </div>
-            <% end %>
-          <% end %>
-        </li>
+          </li>
+        <% end %>
       <% end %>
       <% if user_signed_in?%>
+      <% unless current_user.name == "ゲスト" && current_user.email == "keiken.kanri@gmail.com" %>
       <li class="dropdown ml-2">
         <a class="rounded-circle" href="#!" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div class="avatar avatar-md">
@@ -94,6 +97,10 @@
         </div>
       </li>
       <% else %>
+      <li class="list-inline-item"><i class="fe fe-user mr-1"></i>ゲスト</li>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete,data: {"turbolinks" => false}, class: "btn btn-outline-success btn-xs mr-1", style: "width:80px; font-size: 10px;" %>
+      <% end %>
+      <% else %>
         <%= link_to "ログイン", new_user_session_path,data: {"turbolinks" => false}, class: "btn btn-outline-success btn-xs mr-1", style: "width:70px; font-size: 10px;" %>
         <%= link_to "無料登録", new_user_registration_path,data: {"turbolinks" => false}, class: "btn btn-success btn-xs mr-1", style: "width:70px; font-size: 10px;" %>
       <% end %>
@@ -106,7 +113,11 @@
       <a class="nav-link btn ml-2" href="/categories" data-turbolinks="false"><span class="link-menu" style="font-weight: bold;"><i class="fe fe-search mr-1"></i>カテゴリ</span></a>
     </ul>
     <ul class="navbar-nav">
-      <a class="nav-link btn ml-2" href="/posts/new" data-turbolinks="false"><span class="link-menu" style="font-weight: bold;"><i class="far fa-hand-paper mr-1"></i>質問する</span></a>
+      <% if user_signed_in?%>
+        <a class="nav-link btn ml-2" href="/posts/new" data-turbolinks="false"><span class="link-menu" style="font-weight: bold;"><i class="far fa-hand-paper mr-1"></i>質問する</span></a>
+      <% else %>
+        <a class="nav-link btn ml-2" href="/users/sign_up" data-turbolinks="false"><span class="link-menu" style="font-weight: bold;"><i class="far fa-hand-paper mr-1"></i>質問する</span></a>
+      <% end %>
     </ul>
     </div>
     <!-- Button -->
@@ -114,6 +125,7 @@
     <div class="collapse navbar-collapse" id="navbar-default">
       <ul class="navbar-nav navbar-right-wrap ml-auto d-none d-lg-block">
         <% if user_signed_in?%>
+        <% unless current_user.name == "ゲスト" && current_user.email == "keiken.kanri@gmail.com" %>
           <li class="dropdown d-inline-block stopevent">
             <% if unchecked_notifications.any? %>
               <%= link_to notifications_path,data: {"turbolinks" => false} do  %>
@@ -198,6 +210,10 @@
               </ul>
             </div>
           </li>
+        <% else %>
+          <li class="list-inline-item"><i class="fe fe-user mr-1"></i>ゲスト</li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete,data: {"turbolinks" => false}, class: "btn btn-outline-success btn-md mr-1" %>
+        <% end %>
         <% else%>
           <%= link_to "ログイン", new_user_session_path,data: {"turbolinks" => false}, class: "btn btn-outline-success mr-2" %>
           <%= link_to "無料登録", new_user_registration_path,data: {"turbolinks" => false}, class: "btn btn-success mr-2" %>
