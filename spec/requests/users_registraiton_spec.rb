@@ -28,7 +28,7 @@ RSpec.describe "UserAuthentications", type: :request do
 
       it 'リダイレクトされること' do
         post user_registration_path, params: { user: user_params }
-        expect(response).to redirect_to root_url
+        expect(response).to redirect_to registration_complete_path
       end
     end
 
@@ -47,11 +47,6 @@ RSpec.describe "UserAuthentications", type: :request do
         expect do
           post user_registration_path, params: { user: invalid_user_params }
         end.to_not change(User, :count)
-      end
-
-      it 'エラーが表示されること' do
-        post user_registration_path, params: { user: invalid_user_params }
-        expect(response.body).to include 'prohibited this user from being saved'
       end
     end
   end

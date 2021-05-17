@@ -10,13 +10,13 @@ RSpec.describe "User login", type: :request do
           sign_in(user)
         end
 
-        context "本人の場合" do
-          it "正常なレスポンスを返すこと" do
-            get user_path(user)
-            expect(response).to be_successful
-            expect(response.status).to eq 200
-          end
+      context "本人の場合" do
+        it "正常なレスポンスを返すこと" do
+          get user_path(user)
+          expect(response).to be_successful
+          expect(response.status).to eq 200
         end
+      end
     end
 
     context "ログインしていない場合" do
