@@ -54,7 +54,7 @@ RSpec.describe User, type: :model do
       end
 
       it "パスワード(確認用)がなければ登録できない" do
-        user.password_confirmation = nil
+        user = build(:user, password_confirmation: "")
         user.valid?
         expect(user.errors.full_messages).to include("パスワード（確認用）を入力してください")
       end
@@ -81,6 +81,12 @@ RSpec.describe User, type: :model do
         user.gender = nil
         user.valid?
         expect(user.errors.full_messages).to include("性別を入力してください")
+      end
+
+      it "is_deletedが未入力の場合は登録ができない" do
+        user.is_deleted = nil
+        user.valid?
+        expect(user).to be_invalid
       end
     end
   end
